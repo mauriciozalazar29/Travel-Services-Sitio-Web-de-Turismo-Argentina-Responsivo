@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparador de precios para viajar por toda Argentina">
+    <title>Turismo Argentina | Precios y Planes</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/precios.css">
+</head>
+
+<body>
+
+    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo" aria-label="Inicio Travel Services">
+                Travel Services
+            </a>
+
+            <div class="header-actions">
+                <nav class="main-nav" aria-label="Navegación Principal">
+                    <ul>
+                        <li class="nav-item has-mega-menu">
+                            <a href="#" class="nav-link">Descubrir</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-content">
+                                    <a href="../index.html">Inicio</a>
+                                    <a href="destinos.html">Destinos</a>
+                                    <a href="agencias.html">Agencias</a>
+                                    <a href="precios.html">Precios</a>
+                                    <a href="blog.html">Blog</a>
+                                    <a href="contacto.html">Contacto</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
+                    <img src="../assets/icons/sun.svg" alt="sun">
+                    <img src="../assets/icons/moon.svg" alt="moon">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO: título del comparador de planes -->
+        <section class="precios-hero">
+            <div class="container">
+                <h1>Compará y planea tu proximo viaje</h1>
+                <p>Elige el paquete que mejor se adapte a tu nueva aventura.</p>
+            </div>
+        </section>
+
+        <!-- TABLA DE PLANES Y PRECIOS
+             Tres columnas de planes: Básico, Premium (recomendado) y VIP.
+             Incluye tooltips CSS puro en algunas características. -->
+        <section class="section">
+            <div class="container">
+                <div class="table-container">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Características</th>
+                                <!-- Subtítulos informativos de cada plan -->
+                                <th>Básico<br>
+                                    <span
+                                        style="font-size: 0.9rem; font-weight: 400; color: var(--color-text-muted);">El
+                                        mochilero</span>
+                                </th>
+                                <th class="recommended">Premium<br>
+                                    <span style="font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.8);">El
+                                        más elegido</span>
+                                </th>
+                                <th>VIP<br>
+                                    <span
+                                        style="font-size: 0.9rem; font-weight: 400; color: var(--color-text-muted);">Lujo
+                                        nacional</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- Fila: Vuelos nacionales -->
+                            <tr>
+                                <td data-label="Características">Vuelos Nacionales (Aerolíneas, Jetsmart)</td>
+                                <td data-label="Básico"><span class="check-icon">✓</span></td>
+                                <td data-label="Premium" class="recommended-col"><span class="check-icon">✓</span></td>
+                                <td data-label="VIP"><span class="check-icon">✓</span></td>
+                            </tr>
+
+                            <!-- Fila: Alojamiento (con tooltip informativo) -->
+                            <tr>
+                                <td data-label="Características">
+                                    <span class="tooltip"
+                                        data-tooltip="Dependiendo la zona: hoteles céntricos o cabañas australes.">Alojamiento
+                                        Incluido</span>
+                                </td>
+                                <td data-label="Básico">Hostels / 2 Estrellas</td>
+                                <td data-label="Premium" class="recommended-col">Hoteles 4 Estrellas</td>
+                                <td data-label="VIP">Resorts 5 Estrellas (Régimen completo)</td>
+                            </tr>
+
+                            <!-- Fila: Pases de Parques Nacionales (con tooltip) -->
+                            <tr>
+                                <td data-label="Características">
+                                    <span class="tooltip"
+                                        data-tooltip="Acceso sin demora a Parques Nacionales como Iguazú y Glaciares">Pases
+                                        de Parques Nacionales</span>
+                                </td>
+                                <td data-label="Básico"><span class="cross-icon">X</span></td>
+                                <td data-label="Premium" class="recommended-col"><span class="check-icon">✓</span></td>
+                                <td data-label="VIP"><span class="check-icon">✓</span></td>
+                            </tr>
+
+                            <!-- Fila: Alquiler de Auto -->
+                            <tr>
+                                <td data-label="Características">Alquiler de Auto</td>
+                                <td data-label="Básico"><span class="cross-icon">X</span></td>
+                                <td data-label="Premium" class="recommended-col"><span class="check-icon">✓</span>
+                                    (Compacto)</td>
+                                <td data-label="VIP"><span class="check-icon">✓</span> (SUV/Pickup)</td>
+                            </tr>
+
+                            <!-- Fila: Excursiones (con tooltip) -->
+                            <tr>
+                                <td data-label="Características">
+                                    <span class="tooltip"
+                                        data-tooltip="Catamaranes, tren ecológico, excursiones.">Excursiones
+                                        Principales</span>
+                                </td>
+                                <td data-label="Básico"><span class="cross-icon">X</span></td>
+                                <td data-label="Premium" class="recommended-col"><span class="cross-icon">X</span></td>
+                                <td data-label="VIP"><span class="check-icon">✓</span></td>
+                            </tr>
+
+                            <!-- Fila: Precios de referencia -->
+                            <tr>
+                                <td data-label="Características">Costo Promedio (Desde)</td>
+                                <td data-label="Básico"><strong>$150,000 ARS</strong></td>
+                                <td data-label="Premium" class="recommended-col"><strong>$450,000 ARS</strong></td>
+                                <td data-label="VIP"><strong>$950,000 ARS</strong></td>
+                            </tr>
+
+                            <!-- Fila: Botones de selección de plan -->
+                            <tr>
+                                <td data-label="Características"></td>
+                                <td data-label="Básico">
+                                    <button class="btn btn-secondary">Elegir Básico</button>
+                                </td>
+                                <td data-label="Premium" class="recommended-col">
+                                    <button class="btn btn-primary">Elegir Premium</button>
+                                </td>
+                                <td data-label="VIP">
+                                    <button class="btn btn-secondary">Elegir VIP</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA compartido -->
+    <footer>
+        <div class="container-fluid">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h3>Sobre Travel Services</h3>
+                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
+                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
+                        gastronomía.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <img src="../assets/icons/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <img src="../assets/icons/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Tiktok">
+                            <img src="../assets/icons/tik-tok.svg" alt="Tiktok">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Youtube">
+                            <img src="../assets/icons/youtube.svg" alt="Youtube">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Ingresa tu correo electrónico" required
+                            aria-label="Email para newsletter">
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+
+                <div class="footer-col" style="flex-grow: 1;">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="map-container">
+                        <iframe width="100%" height="200"
+                            src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
+                            style="border: 1px solid black"
+                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
+                    Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

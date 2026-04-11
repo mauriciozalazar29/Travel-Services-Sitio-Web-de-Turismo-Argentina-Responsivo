@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Descubre los mejores destinos turísticos de Argentina. Viaja, explora y vive experiencias únicas con Travel Services.">
+    <title>Turismo Argentina | Travel Services</title>
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="Inicio Travel Services">
+                Travel Services
+            </a>
+
+            <div class="header-actions">
+                <nav class="main-nav" aria-label="Navegación Principal">
+                    <ul>
+                        <!-- Ítem con mega-menú desplegable al hover -->
+                        <li class="nav-item has-mega-menu">
+                            <a href="#" class="nav-link">Descubrir</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-content">
+                                    <a href="index.html">Inicio</a>
+                                    <a href="pages/destinos.html">Destinos</a>
+                                    <a href="pages/agencias.html">Agencias</a>
+                                    <a href="pages/precios.html">Precios</a>
+                                    <a href="pages/blog.html">Blog</a>
+                                    <a href="pages/contacto.html">Contacto</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Botón que alterna entre modo claro y oscuro -->
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
+                    <img src="./assets/icons/sun.svg" alt="sun">
+                    <img src="./assets/icons/moon.svg" alt="moon">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- SECCIÓN HERO: video de fondo a pantalla completa con texto animado -->
+        <section class="hero" aria-label="Introducción">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source
+                    src="./assets/videos/YTDown.com_YouTube_Argentina-where-greatness-meets-freedom_Media_aCGgfoiRkE4_001_1080p.mp4"
+                    type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <h1>Descubre Argentina</h1>
+                <p>Explora la Patagonia, el imponente Norte, Cuyo y las maravillas que ofrece nuestro país. Tu próxima
+                    aventura empieza aquí.</p>
+                <div class="hero-actions">
+                    <a href="pages/destinos.html" class="btn btn-primary">Ver Destinos</a>
+                    <a href="pages/contacto.html" class="btn btn-secondary glass">Contactanos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DESTINOS DESTACADOS: grilla de tarjetas de destinos populares -->
+        <section class="section">
+            <div class="container-fluid">
+                <h2 class="section-title">
+                    <span>Tendencias Nacionales</span>
+                    Destinos Destacados
+                </h2>
+
+                <div class="destinos-grid">
+
+                    <article class="destino-card">
+                        <span class="destino-tag">Naturaleza</span>
+                        <img src="./assets/images/cataratasiguazu.jpg" alt="Cataratas del Iguazú" class="destino-img">
+                        <div class="destino-info">
+                            <span class="destino-price">$450</span>
+                            <h3>Cataratas del Iguazú, Misiones</h3>
+                            <p>Siente la fuerza de la Garganta del Diablo en esta maravilla natural.</p>
+                        </div>
+                    </article>
+
+                    <article class="destino-card">
+                        <span class="destino-tag">Hielo y Glaciares</span>
+                        <img src="./assets/images/PeritoMoreno.jpg" alt="Glaciar Perito Moreno" class="destino-img">
+                        <div class="destino-info">
+                            <span class="destino-price">$850</span>
+                            <h3>Glaciar Perito Moreno, Santa Cruz</h3>
+                            <p>Recorre la inmensidad de hielo en el corazón del sur argentino.</p>
+                        </div>
+                    </article>
+
+                    <article class="destino-card">
+                        <span class="destino-tag">Cultural</span>
+                        <img src="./assets/images/humahuaca.jpg" alt="Cerro de los Siete Colores" class="destino-img">
+                        <div class="destino-info">
+                            <span class="destino-price">$350</span>
+                            <h3>Quebrada de Humahuaca, Jujuy</h3>
+                            <p>Paisajes milenarios y tradiciones intactas en el norte andino.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ESTADÍSTICAS: contador animado con CSS puro usando @property -->
+        <section class="section">
+            <div class="container-fluid">
+                <div class="counter-box">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3 class="count-animate-1" aria-label="Más de 500 puntos del país"></h3>
+                            <p>Puntos del País</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="count-animate-2"></h3>
+                            <p>Agencias Argentinas Asociadas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10K+</h3>
+                            <p>Turistas Felices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN TESTIMONIOS: carrusel horizontal con scroll snap (sin JavaScript) -->
+        <section class="section">
+            <div class="container-fluid">
+                <h2 class="section-title">
+                    <span>Experiencias</span>
+                    Lo que dicen nuestros viajeros
+                </h2>
+
+                <div class="testimonials-wrapper">
+                    <div class="testimonials-carousel" tabindex="0" aria-label="Carrusel de testimonios">
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Una experiencia inolvidable. La belleza de los paisajes de los Valles Calchaquíes y
+                                calidad de los vinos de altura"</p>
+                            <div class="user-info">
+                                <img src="./assets/images/mau.jpg" alt="Usuario Mauricio" class="user-avatar">
+                                <div class="user-details">
+                                    <h4>Mauricio Z.</h4>
+                                    <span>Viajó a Cafayate</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Me lo pasé genial en la aventura de 10 días en la Patagonia hecha a medida con Argentina
+                                Pura. Los paisajes eran simplemente alucinantes, y las actividades, emocionantes."</p>
+                            <div class="user-info">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                                    alt="Avatar Usuario Marcos" class="user-avatar">
+                                <div class="user-details">
+                                    <h4>Marcos D.</h4>
+                                    <span>Viajó a Bariloche</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★☆</div>
+                            <p>"Excelente asistencia para ir al faro del fin del mundo. Me orientaron perfectamente para
+                                disfrutar Tierra del Fuego en invierno."</p>
+                            <div class="user-info">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                                    alt="Avatar Usuario Sofia" class="user-avatar">
+                                <div class="user-details">
+                                    <h4>Sofia L.</h4>
+                                    <span>Viajó a Ushuaia</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"El paseo en el Tren a las Nubes fue increíble. El guía local salteño nos invitó a comer
+                                empanadas inolvidables."</p>
+                            <div class="user-info">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                                    alt="Avatar Usuario Carlos" class="user-avatar">
+                                <div class="user-details">
+                                    <h4>Carlos M.</h4>
+                                    <span>Viajó a Salta</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA: información de la empresa, newsletter y mapa -->
+    <footer>
+        <div class="container-fluid">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h3>Sobre Travel Services</h3>
+                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
+                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
+                        gastronomía.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <img src="./assets/icons/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <img src="./assets/icons/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Tiktok">
+                            <img src="./assets/icons/tik-tok.svg" alt="Tiktok">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Youtube">
+                            <img src="./assets/icons/youtube.svg" alt="Youtube">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Ingresa tu correo electrónico" required
+                            aria-label="Email para newsletter">
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+
+                <div class="footer-col" style="flex-grow: 1;">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="map-container">
+                        <iframe width="100%" height="200"
+                            src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
+                            style="border: 1px solid black"
+                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
+                    Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explora nuestro catálogo de destinos turísticos por Argentina usando nuestros filtros avanzados">
+    <title>Turismo Argentina | Destinos</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/destinos.css">
+</head>
+
+<body>
+
+    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo" aria-label="Inicio Travel Services">
+                Travel Services
+            </a>
+
+            <div class="header-actions">
+                <nav class="main-nav" aria-label="Navegación Principal">
+                    <ul>
+                        <li class="nav-item has-mega-menu">
+                            <a href="#" class="nav-link">Descubrir</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-content">
+                                    <a href="../index.html">Inicio</a>
+                                    <a href="destinos.html">Destinos</a>
+                                    <a href="agencias.html">Agencias</a>
+                                    <a href="precios.html">Precios</a>
+                                    <a href="blog.html">Blog</a>
+                                    <a href="contacto.html">Contacto</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
+                    <img src="../assets/icons/sun.svg" alt="sun">
+                    <img src="../assets/icons/moon.svg" alt="moon">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO: título de la página -->
+        <section class="destinos-hero">
+            <div class="container">
+                <h1>Destinos de Argentina</h1>
+                <p>Encuentra tu próximo viaje soñado en nuestra tierra y paisajes inigualables.</p>
+            </div>
+        </section>
+
+        <!-- SISTEMA DE FILTROS + GRILLA MASONRY
+             Los inputs radio ocultos controlan qué categorías de destinos se muestran.
+             Los labels actúan como botones de filtro visibles. -->
+        <div class="filter-container">
+
+            <!-- Inputs radio ocultos que controlan el estado de cada filtro -->
+            <input type="radio" name="destino-filter" id="filter-todos"       class="filter-radio" checked>
+            <input type="radio" name="destino-filter" id="filter-cultura"     class="filter-radio">
+            <input type="radio" name="destino-filter" id="filter-naturaleza"  class="filter-radio">
+            <input type="radio" name="destino-filter" id="filter-playa"       class="filter-radio">
+            <input type="radio" name="destino-filter" id="filter-gastronomia" class="filter-radio">
+            <input type="radio" name="destino-filter" id="filter-religioso"   class="filter-radio">
+
+            <!-- Botones de filtro visibles -->
+            <div class="filter-labels" aria-label="Filtros de destinos">
+                <label for="filter-todos"       class="filter-btn">Todos</label>
+                <label for="filter-cultura"     class="filter-btn">Cultural</label>
+                <label for="filter-naturaleza"  class="filter-btn">Naturaleza</label>
+                <label for="filter-playa"       class="filter-btn">Sol y Playa</label>
+                <label for="filter-gastronomia" class="filter-btn">Gastronómico</label>
+                <label for="filter-religioso"   class="filter-btn">Religioso</label>
+            </div>
+
+            <!-- Grilla de destinos en formato mosaico (masonry) -->
+            <div class="destinos-masonry">
+
+                <!-- Teatro Colón — Categoría: Cultural, tamaño: ancho -->
+                <article class="destino-item dest-wide cat-cultura">
+                    <img src="../assets/images/colon.jpg" alt="Teatro Colón" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Teatro Colón, CABA</h3>
+                        <p>Visita guiada por una de las maravillas de la acústica mundial.</p>
+                    </div>
+                </article>
+
+                <!-- Cataratas del Iguazú — Categoría: Naturaleza, tamaño: alto -->
+                <article class="destino-item dest-tall cat-naturaleza">
+                    <img src="../assets/images/cataratasiguazu.jpg" alt="Cataratas del Iguazú" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Cataratas del Iguazú, Misiones</h3>
+                        <p>Siente la fuerza de la Garganta del Diablo en esta maravilla natural.</p>
+                    </div>
+                </article>
+
+                <!-- Ruta del Vino Mendoza — Categoría: Gastronómica, tamaño: ancho -->
+                <article class="destino-item dest-wide cat-gastronomia">
+                    <img src="../assets/images/mendoza.jpg" alt="Bodega Mendoza" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Ruta del Vino, Mendoza</h3>
+                        <p>Degustaciones de Malbec a los pies de la cordillera.</p>
+                    </div>
+                </article>
+
+                <!-- Cafayate — Categoría: Gastronómica, tamaño: normal -->
+                <article class="destino-item cat-gastronomia">
+                    <img src="../assets/images/cafayate.jpg" alt="Bodega Cafayate" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Vinos de Altura, Cafayate</h3>
+                        <p>Vení a probar los vinos de altura en Cafayate</p>
+                    </div>
+                </article>
+
+                <!-- Barrio La Boca — Categoría: Cultural, tamaño: alto -->
+                <article class="destino-item dest-tall cat-cultura">
+                    <img src="../assets/images/laboa.webp" alt="Barrio la Boca" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Barrio La Boca</h3>
+                        <p>Entre Caminito, los conventillos y la pasión futbolera por Boca Juniors, descubrí un lugar
+                            único en el mundo.</p>
+                    </div>
+                </article>
+
+                <!-- Basílica de Luján — Categoría: Religiosa, tamaño: normal -->
+                <article class="destino-item cat-religioso">
+                    <img src="../assets/images/lujan.webp" alt="Basílica de Luján" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Basílica de Luján, Bs. As.</h3>
+                        <p>El corazón de la fe y centro de peregrinación de Argentina.</p>
+                    </div>
+                </article>
+
+                <!-- Mar del Plata — Categoría: Playa, tamaño: normal -->
+                <article class="destino-item cat-playa">
+                    <img src="../assets/images/mardeplata.jpg" alt="Mar del Plata" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Mar del Plata</h3>
+                        <p>La perla del atlántico, sol, playas y espectáculos.</p>
+                    </div>
+                </article>
+
+                <!-- Las Grutas — Categoría: Playa, tamaño: ancho -->
+                <article class="destino-item dest-wide cat-playa">
+                    <img src="../assets/images/rio negro.jpg" alt="Las Grutas" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Las Grutas, Rio Negro</h3>
+                        <p>Disfruta de las aguas cálidas y transparentes de las playas patagónicas.</p>
+                    </div>
+                </article>
+
+                <!-- Salinas Grandes — Categoría: Naturaleza, tamaño: normal -->
+                <article class="destino-item cat-naturaleza">
+                    <img src="../assets/images/salinas.webp" alt="Salinas de Jujuy" class="masonry-img">
+                    <div class="overlay">
+                        <h3>Salinas Grandes, Jujuy</h3>
+                        <p>Las Salinas Grandes (a 3450 msnm) son una de esas maravillas que hay que conocer al menos una
+                            vez en la vida.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- PIE DE PÁGINA compartido -->
+    <footer>
+        <div class="container-fluid">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h3>Sobre Travel Services</h3>
+                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
+                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
+                        gastronomía.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <img src="../assets/icons/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <img src="../assets/icons/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Tiktok">
+                            <img src="../assets/icons/tik-tok.svg" alt="Tiktok">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Youtube">
+                            <img src="../assets/icons/youtube.svg" alt="Youtube">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Ingresa tu correo electrónico" required
+                            aria-label="Email para newsletter">
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+
+                <div class="footer-col" style="flex-grow: 1;">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="map-container">
+                        <iframe width="100%" height="200"
+                            src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
+                            style="border: 1px solid black"
+                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
+                    Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,337 @@
+/* =========================================
+   HOME — SECCIÓN HERO
+   Banner principal con video de fondo a pantalla
+   completa. El contenido se anima al cargar la página.
+========================================= */
+.hero {
+  position: relative;
+  height: calc(100vh - var(--header-height));
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Video de fondo centrado y redimensionado para cubrir toda la sección */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -2;
+  object-fit: cover;
+}
+
+/* Capa semitransparente sobre el video para mejorar la legibilidad del texto */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+  z-index: -1;
+}
+
+/* Contenedor del texto central del hero */
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+/* El título entra desde abajo con un retardo de 0.2s */
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
+}
+
+/* El párrafo aparece después del título (0.4s de retardo) */
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.4s;
+}
+
+/* Los botones de acción se animan al final (0.6s de retardo) */
+.hero-actions {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.6s;
+}
+
+/* Animación de entrada: desplazamiento vertical con aparición de opacidad */
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   HOME — DESTINOS DESTACADOS
+   Grilla responsiva de tarjetas de destinos
+   con imagen, categoría, precio y descripción.
+========================================= */
+.destinos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta de destino con fondo de superficie y borde redondeado */
+.destino-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  background-color: var(--color-surface);
+  transition: all var(--transition-normal);
+}
+
+/* Elevación de la tarjeta al pasar el cursor */
+.destino-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Imagen de la tarjeta con altura fija y recorte centrado */
+.destino-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+/* La imagen se agranda levemente al hacer hover en la tarjeta */
+.destino-card:hover .destino-img {
+  transform: scale(1.1);
+}
+
+/* Información textual debajo de la imagen */
+.destino-info {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  background: var(--color-surface);
+}
+
+/* Etiqueta de categoría flotante sobre la imagen */
+.destino-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-round);
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Precio del destino resaltado en azul y negrita */
+.destino-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* =========================================
+   HOME — CONTADOR ANIMADO (CSS PURO)
+   Bloque de estadísticas con fondo degradado.
+   Usa @property para animar números enteros
+   sin necesidad de JavaScript.
+========================================= */
+.counter-box {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Distribución horizontal de las estadísticas */
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Número estadístico de gran tamaño */
+.stat-item h3 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Descripción de cada estadística, semi-transparente sobre el fondo */
+.stat-item p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Definición de la propiedad CSS personalizada para la animación del contador.
+   Necesita @property para que el navegador pueda interpolar enteros. */
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+/* Contador 1: anima de 0 a 500 y agrega el signo "+" */
+.count-animate-1 {
+  animation: counter1 3s ease-out forwards;
+  counter-reset: num var(--num);
+}
+.count-animate-1::after { content: counter(num) "+"; }
+
+/* Contador 2: anima de 0 a 150 */
+.count-animate-2 {
+  animation: counter2 3s ease-out forwards;
+  counter-reset: num var(--num);
+}
+.count-animate-2::after { content: counter(num); }
+
+@keyframes counter1 {
+  from { --num: 0; }
+  to   { --num: 500; }
+}
+
+@keyframes counter2 {
+  from { --num: 0; }
+  to   { --num: 150; }
+}
+
+/* Fallback para navegadores sin soporte de @property:
+   muestra el valor final directamente con una animación de escala */
+@supports not (background: paint(something)) {
+  .count-animate-1::after { content: "500+"; animation: fadeScale 1s; }
+  .count-animate-2::after { content: "150";  animation: fadeScale 1s; }
+}
+
+@keyframes fadeScale {
+  0%   { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
+   HOME — CARRUSEL DE TESTIMONIOS (CSS PURO)
+   Desplazamiento horizontal con scroll snap.
+   No requiere JavaScript.
+========================================= */
+.testimonials-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Contenedor con scroll horizontal y snap por tarjeta */
+.testimonials-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+/* Barra de desplazamiento horizontal personalizada del carrusel */
+.testimonials-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.testimonials-carousel::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: var(--radius-round);
+}
+.testimonials-carousel::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-round);
+}
+
+/* Tarjeta de testimonio: ocupa 1/3 del ancho del carrusel */
+.testimonial-card {
+  min-width: calc(33.333% - 1.33rem);
+  flex: 0 0 calc(33.333% - 1.33rem);
+  scroll-snap-align: center;
+  background-color: var(--color-surface);
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+/* Comilla decorativa en la esquina superior derecha de cada tarjeta */
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 6rem;
+  color: var(--color-border);
+  font-family: serif;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+/* Estrellas de calificación en color dorado */
+.stars {
+  color: #f59e0b;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+/* Fila con avatar y datos del viajero */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Avatar circular del usuario */
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+}
+
+/* Nombre del usuario */
+.user-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+/* Destino visitado, en texto secundario */
+.user-details span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}

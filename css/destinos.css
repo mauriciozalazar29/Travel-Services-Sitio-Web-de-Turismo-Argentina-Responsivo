@@ -1,0 +1,219 @@
+/* =========================================
+   DESTINOS — HERO DE PÁGINA
+   Encabezado con fondo del color primario,
+   texto blanco y separador inferior.
+========================================= */
+.destinos-hero {
+  padding: calc(var(--header-height) + 4rem) 0 4rem;
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.destinos-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Subtítulo del hero con texto semitransparente */
+.destinos-hero p {
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   FILTROS CSS-PURO
+   Sistema de filtrado sin JavaScript, usando
+   inputs radio ocultos y el selector de hermanos (~).
+========================================= */
+
+/* Los inputs radio son invisibles; los labels actúan como botones */
+.filter-radio {
+  display: none;
+}
+
+/* Contenedor del sistema de filtros con margen superior */
+.filter-container {
+  max-width: 100%;
+  margin: 4rem auto 2rem;
+  padding: 0;
+}
+
+/* Fila de botones de filtro centrada */
+.filter-labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Estilo base de cada botón de filtro */
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-round);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Al pasar el cursor el botón se activa visualmente */
+.filter-btn:hover {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Cuando el input radio está seleccionado, el label correspondiente se resalta */
+#filter-todos:checked ~ .filter-labels [for="filter-todos"],
+#filter-cultura:checked ~ .filter-labels [for="filter-cultura"],
+#filter-naturaleza:checked ~ .filter-labels [for="filter-naturaleza"],
+#filter-playa:checked ~ .filter-labels [for="filter-playa"],
+#filter-gastronomia:checked ~ .filter-labels [for="filter-gastronomia"],
+#filter-religioso:checked ~ .filter-labels [for="filter-religioso"] {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Lógica de filtrado: oculta los ítems que no coincidan con el filtro seleccionado */
+#filter-cultura:checked    ~ .destinos-masonry .destino-item:not(.cat-cultura),
+#filter-naturaleza:checked ~ .destinos-masonry .destino-item:not(.cat-naturaleza),
+#filter-playa:checked      ~ .destinos-masonry .destino-item:not(.cat-playa),
+#filter-gastronomia:checked ~ .destinos-masonry .destino-item:not(.cat-gastronomia),
+#filter-religioso:checked  ~ .destinos-masonry .destino-item:not(.cat-religioso) {
+  display: none;
+}
+
+/* Los ítems visibles reaparecen con una animación de escala suave */
+.destino-item {
+  animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
+   GRILLA MASONRY DE DESTINOS
+   Diseño tipo mosaico con columnas y filas
+   de distinto tamaño para mayor variedad visual.
+========================================= */
+.destinos-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 2rem;
+  max-width: 95%;
+  margin: 0 auto 5rem;
+  grid-auto-flow: dense;
+}
+
+/* Cada ítem del mosaico: overflow oculto para el efecto de zoom */
+.destino-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  background-color: var(--color-surface);
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Elementos pares del grid usan un clip-path trapezoidal para variedad */
+.destino-item:nth-child(even) .masonry-img {
+  clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+}
+
+/* Cada tercer elemento usa bordes asimétricos para diferenciarse */
+.destino-item:nth-child(3n) .masonry-img {
+  border-radius: 40px 10px 40px 10px;
+  clip-path: none;
+}
+
+/* La imagen cubre todo el espacio del ítem */
+.masonry-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform var(--transition-slow);
+  object-fit: cover;
+}
+
+/* Modificadores de tamaño del grid */
+
+/* Destacado: ocupa 2 columnas y 2 filas */
+.dest-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Alto: ocupa 2 filas (más alto) */
+.dest-tall {
+  grid-row: span 2;
+}
+
+/* Ancho: ocupa 2 columnas */
+.dest-wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* =========================================
+   OVERLAY DE DESTINO
+   Información oculta que aparece al hacer hover,
+   superpuesta sobre la imagen con un degradado oscuro.
+========================================= */
+.overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  color: white;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+/* Al hover: la imagen se agranda y la overlay aparece */
+.destino-item:hover .masonry-img {
+  transform: scale(1.1) rotate(1deg);
+}
+
+.destino-item:hover .overlay {
+  opacity: 1;
+}
+
+/* El título y descripción se deslizan hacia arriba al activarse */
+.overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+}
+
+.overlay p {
+  color: #e2e8f0;
+  margin: 0;
+  font-size: 0.9rem;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+  transition-delay: 0.05s;
+}
+
+.destino-item:hover .overlay h3,
+.destino-item:hover .overlay p {
+  transform: translateY(0);
+}

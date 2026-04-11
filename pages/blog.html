@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Lee las últimas noticias de viajes, guías locales y tips para exploradores por todo el suelo argentino.">
+    <title>Turismo Argentina | Blog de Travel Services</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+
+<body>
+
+    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo" aria-label="Inicio Travel Services">
+                Travel Services
+            </a>
+
+            <div class="header-actions">
+                <nav class="main-nav" aria-label="Navegación Principal">
+                    <ul>
+                        <li class="nav-item has-mega-menu">
+                            <a href="#" class="nav-link">Descubrir</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-content">
+                                    <a href="../index.html">Inicio</a>
+                                    <a href="destinos.html">Destinos</a>
+                                    <a href="agencias.html">Agencias</a>
+                                    <a href="precios.html">Precios</a>
+                                    <a href="blog.html">Blog</a>
+                                    <a href="contacto.html">Contacto</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
+                    <img src="../assets/icons/sun.svg" alt="sun">
+                    <img src="../assets/icons/moon.svg" alt="moon">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO: título de la revista de viajes -->
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Blog de viajes</h1>
+                <p>Conoce Argentina con nosotros</p>
+            </div>
+        </section>
+
+        <!-- SISTEMA DE FILTROS + GRILLA DE ARTÍCULOS
+             Los inputs radio ocultos controlan qué artículos se muestran según la categoría.
+             Todo funciona sin JavaScript usando el selector de hermanos CSS (~). -->
+        <div>
+            <!-- Inputs radio ocultos que guardan el estado del filtro activo -->
+            <input type="radio" name="blog-filter" id="tag-all" class="blog-filter-input" checked>
+            <input type="radio" name="blog-filter" id="tag-destinos" class="blog-filter-input">
+            <input type="radio" name="blog-filter" id="tag-cultura" class="blog-filter-input">
+            <input type="radio" name="blog-filter" id="tag-consejos" class="blog-filter-input">
+
+            <!-- Pestañas de filtro -->
+            <nav class="blog-filters">
+                <label for="tag-all" class="blog-filter-label">Todos</label>
+                <label for="tag-destinos" class="blog-filter-label">Destinos</label>
+                <label for="tag-cultura" class="blog-filter-label">Cultura</label>
+                <label for="tag-consejos" class="blog-filter-label">Consejos</label>
+            </nav>
+
+            <!-- Grilla de artículos tipo diario/revista -->
+            <div class="news-grid">
+
+                <!-- Artículo destacado (2 col × 2 filas) — Categoría: Destinos -->
+                <article class="news-article news-featured tag-destinos">
+                    <img src="https://vacacionesporargentina.com/wp-content/uploads/2026/02/glass-wine-with-stunning-view-vineyard-sunset-scaled.jpg"
+                        alt="Vino en viñedo" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Destinos</span>
+                        <h2 class="news-title">La ruta del vino en Argentina: paisajes, provincias y variedades únicas
+                        </h2>
+                        <p class="news-excerpt">Argentina es uno de los grandes referentes vitivinícolas del mundo, y
+                            recorrer su ruta del vino es una forma privilegiada de conocer el país a través de sus
+                            paisajes, su cultura y sus sabores. Esta ruta se extiende por varias provincias, cada una
+                            con características propias que dan origen a vinos de gran personalidad.</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+                <!-- Artículo alto (1 col × 2 filas) — Categoría: Destinos -->
+                <article class="news-article news-tall tag-destinos">
+                    <img src="https://blog.patagoniatraveler.com/wp-content/uploads/2020/01/Upsala-696x385.jpg"
+                        alt="Glaciares Escondidos" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Destinos Naturaleza</span>
+                        <h2 class="news-title">La Patagonia Argentina y los Glaciares Escondidos</h2>
+                        <p class="news-excerpt">Conocer El Calafate y el Parque Nacional Los Glaciares fue siempre mi
+                            sueño, desde muy pequeño. Oía historias fascinantes y creía que El Calafate era sólo la
+                            puerta de entrada para conocer al impresionante Glaciar Perito Moreno. Sin embargo, la
+                            realidad superó mis expectativas, porque la belleza de esa región es indescriptible.</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+                <!-- Artículo ancho (2 col × 1 fila) — Categoría: Destinos -->
+                <article class="news-article news-wide tag-destinos">
+                    <img src="https://blog.patagoniatraveler.com/wp-content/uploads/2019/01/CataratasdelIguazu-1-640x385.jpg"
+                        alt="Cataratas del Iguazú" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Destinos Aventura</span>
+                        <h2 class="news-title">Actividades turísticas imperdibles en Cataratas del Iguazú</h2>
+                        <p class="news-excerpt">Un destino que seduce a viajeros de todo el mundo por su belleza
+                            natural, su infraestructura hotelera y la posibilidad de realizar diversos paseos que son
+                            realmente imperdibles. Las Cataratas del Iguazú son una experiencia única de contacto con la
+                            naturaleza!</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+                <!-- Artículo normal (1 col × 1 fila) — Categoría: Cultura -->
+                <article class="news-article tag-cultura">
+                    <img src="https://vacacionesporargentina.com/wp-content/uploads/2025/11/pexels-hector-perez-1148818-6023758-scaled.jpg"
+                        alt="Paisajes de Argentina" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Cultura General</span>
+                        <h2 class="news-title">Argentina es mucho más que paisajes…</h2>
+                        <p class="news-excerpt">Es tradición viva, música, rituales que se transmiten de generación en
+                            generación y celebraciones que definen su identidad.</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+                <!-- Artículo alto (1 col × 2 filas) — Categoría: Consejos -->
+                <article class="news-article news-tall tag-consejos">
+                    <img src="https://blog.patagoniatraveler.com/wp-content/uploads/2018/10/Viajar-a-Argentna.jpg"
+                        alt="Pros y contras Argentina" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Consejos</span>
+                        <h2 class="news-title">Viajar a Argentina: Pros y Contras</h2>
+                        <p class="news-excerpt">Viajar a Argentina significa conocer un país rico en cultura,
+                            gastronomía, paisajes y una identidad única, solamente se contrasta con los miles de
+                            kilómetros que posee su geografía y lo casi imposible resulta visitar a Argentina en un solo
+                            viaje. Es por eso que te comentamos algunos consejos para que puedas tener todo en cuenta a
+                            la hora de organizar tu viaje.</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+                <!-- Artículo ancho (2 col × 1 fila) — Categoría: Consejos -->
+                <article class="news-article news-wide tag-consejos">
+                    <img src="https://blog.patagoniatraveler.com/wp-content/uploads/2018/07/BuenosAiresArgentina.jpg"
+                        alt="Consejos para visitar Argentina" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Consejos Útiles</span>
+                        <h2 class="news-title">Consejos para viajar a Argentina</h2>
+                        <p class="news-excerpt">Cada vez que viajas a un país nuevo, puedes sentir que estás pasando por
+                            un torbellino de emociones. Aunque la emoción puede ser la que más te identifica, algo por
+                            lo que no debes pensar es cómo evitar ofender a aquellos cuyo país planeas visitar. Hay
+                            muchas cosas que parecen normales en otras culturas, pero viajar a Argentina es una
+                            experiencia particular que puede requerir cierta preparación.</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+                <!-- Artículo ancho (2 col × 1 fila) — Categoría: Consejos y Gastronomía -->
+                <article class="news-article news-wide tag-consejos">
+                    <img src="https://blog.patagoniatraveler.com/wp-content/uploads/2018/07/corderopatagonico.jpg"
+                        alt="Gastronomia Patagonia" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Consejos y Gastronomía</span>
+                        <h2 class="news-title">La Mejor Gastronomía de la Patagonia</h2>
+                        <p class="news-excerpt">Cuando comenzamos a planificar un viaje, hay ciertas variables claves
+                            que son innegociables: La gastronomía, un buen lugar para dormir y la gastronomía, sí,
+                            doblemente importante el buen comer y el buen beber, es por eso que te facilitamos el trabajo y recomendamos los mejores platos para disfrutar de la mejor gastronomía de la Patagonia.</p>
+                        <a href="#" class="btn btn-secondary">Leer Completo</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE COMENTARIOS RECIENTES con avatares generados completamente en CSS -->
+        <section class="section">
+            <div class="comments-section">
+                <h2>Comentarios Recientes</h2>
+
+                <div class="comment">
+                    <div class="css-avatar avatar-1" aria-hidden="true"></div>
+                    <div class="comment-content">
+                        <span class="comment-author">Christian Herrera</span>
+                        <span class="comment-date">Hace 2 horas</span>
+                        <p>La atención fue excelente desde el primer momento. Siempre tuvimos asistencia y todo salió
+                            tal como se planificó.</p>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="css-avatar avatar-2" aria-hidden="true"></div>
+                    <div class="comment-content">
+                        <span class="comment-author">Soledad Pastorutti</span>
+                        <span class="comment-date">Ayer, 18:30 hr</span>
+                        <p>Cada destino fue inolvidable: desde la energía de Buenos Aires hasta la naturaleza de Iguazú
+                            y la Patagonia.</p>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="css-avatar avatar-3" aria-hidden="true"></div>
+                    <div class="comment-content">
+                        <span class="comment-author">Lazaro Caballero</span>
+                        <span class="comment-date">24 Mar 2026</span>
+                        <p>Argentina superó todas nuestras expectativas: paisajes únicos, cultura increíble y gente muy
+                            amable.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA compartido -->
+    <footer>
+        <div class="container-fluid">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h3>Sobre Travel Services</h3>
+                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
+                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
+                        gastronomía.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <img src="../assets/icons/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <img src="../assets/icons/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Tiktok">
+                            <img src="../assets/icons/tik-tok.svg" alt="Tiktok">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Youtube">
+                            <img src="../assets/icons/youtube.svg" alt="Youtube">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Ingresa tu correo electrónico" required
+                            aria-label="Email para newsletter">
+                        <button type="submit">Suscribirme</button>
+                    </form>
+                </div>
+
+                <div class="footer-col" style="flex-grow: 1;">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="map-container">
+                        <iframe width="100%" height="200"
+                            src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
+                            style="border: 1px solid black"
+                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
+                    Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
