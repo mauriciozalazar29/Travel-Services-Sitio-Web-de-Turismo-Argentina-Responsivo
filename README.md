@@ -826,7 +826,7 @@ Características:
 
 1. **Clonar o descargar el proyecto:**
    ```bash
-   git clone <url-repositorio>
+   git clone <https://github.com/mauriciozalazar29/Travel-Services-Sitio-Web-de-Turismo-Argentina.git>
    cd turismo-website
    ```
 
