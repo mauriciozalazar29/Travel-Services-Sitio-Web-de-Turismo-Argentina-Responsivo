@@ -1,31 +1,138 @@
-/* =========================================
-   MAIN.JS — Lógica principal del sitio
-   Maneja el cambio de tema claro/oscuro.
-   Se aplica en todas las páginas del proyecto.
-========================================= */
+$(document).ready(function () {
+    /* tema */
+    const themeToggle = $('#theme-toggle');
+    if (themeToggle.length) {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
+        document.documentElement.setAttribute('data-bs-theme', initialTheme);
+        updateThemeIcon(initialTheme);
 
-    /* Si el botón no existe en la página, no se ejecuta nada */
-    if (!themeToggle) return;
+        themeToggle.on('click', function () {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    /* Lee la preferencia guardada en el almacenamiento local del navegador.
-       Si no existe, consulta la preferencia del sistema operativo del usuario. */
-    const storedTheme = localStorage.getItem('theme');
-    const prefersDark  = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
 
-    /* Aplica el tema inicial al elemento <html> mediante el atributo data-theme */
-    document.documentElement.setAttribute('data-theme', initialTheme);
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeToggle.html('<i class="fa-solid fa-sun fs-5 text-warning"></i>');
+            } else {
+                themeToggle.html('<i class="fa-solid fa-moon fs-5 text-dark"></i>');
+            }
+        }
+    }
 
-    /* Al hacer clic en el botón, alterna entre "dark" y "light"
-       y guarda la nueva preferencia en localStorage para persistirla. */
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme     = currentTheme === 'dark' ? 'light' : 'dark';
+    /* animacion */
+    if ($('.hero-title').length) {
+        $('.hero-title').fadeIn(900, function () {
+            $('.hero-subtitle').slideDown(900, function () {
+                $('.hero-actions').fadeIn(900);
+            });
+        });
+    }
 
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+    /* contador */
+    const counters = $('.counter-value');
+    if (counters.length) {
+        let hasCounted = false;
+
+        function animateCounters() {
+            const oTop = $('.counter-box').offset().top - window.innerHeight;
+            if (hasCounted === false && $(window).scrollTop() > oTop) {
+                counters.each(function () {
+                    const $this = $(this);
+                    const countTo = $this.attr('data-target');
+                    $({ countNum: $this.text() }).animate({
+                        countNum: countTo
+                    }, {
+                        duration: 2000,
+                        easing: 'swing',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum + '+');
+                        }
+                    });
+                });
+                hasCounted = true;
+            }
+        }
+
+        $(window).on('scroll', animateCounters);
+        animateCounters();
+    }
+
+    /* filtros */
+    const filterBtns = $('.filter-btn');
+    if (filterBtns.length) {
+        filterBtns.on('click', function () {
+            // actualizar clase activa del boton
+            filterBtns.removeClass('active btn-primary text-white').addClass('btn-outline-primary');
+            $(this).removeClass('btn-outline-primary').addClass('active btn-primary text-white');
+
+            const filterValue = $(this).attr('data-filter');
+
+            if (filterValue === 'todos') {
+                $('.destino-item').show(400);
+            } else {
+                $('.destino-item').hide();
+                $('.destino-item').filter('.' + filterValue).show(400);
+            }
+        });
+    }
+
+    /* zoom */
+    $('.zoom-img-container').on('mouseenter', function () {
+        $(this).addClass('zoom-active');
+    }).on('mouseleave', function () {
+        $(this).removeClass('zoom-active');
     });
+
+
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+
+
+    /* blog filtro */
+    const filterBlog = $('.filter-blog');
+    if (filterBlog.length) {
+        filterBlog.on('click', function () {
+            $('.filter-blog').removeClass('active btn-dark text-white').addClass('btn-outline-dark');
+            $(this).removeClass('btn-outline-dark').addClass('active btn-dark text-white');
+
+            const filter = $(this).data('filter');
+            if (filter === 'todos') {
+                $('.blog-post-item').fadeIn(400);
+            } else {
+                $('.blog-post-item').hide();
+                $('.blog-post-item.' + filter).fadeIn(400);
+            }
+        });
+
+        // animaciones al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+                else {
+                    entry.target.classList.remove('in-view');
+                }
+            }
+            );
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        $('.magazine-post').each(function () {
+            observer.observe(this);
+        });
+    }
 });

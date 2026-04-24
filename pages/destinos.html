@@ -8,228 +8,342 @@
         content="Explora nuestro catálogo de destinos turísticos por Argentina usando nuestros filtros avanzados">
     <title>Turismo Argentina | Destinos</title>
 
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/destinos.css">
 </head>
 
 <body>
 
-    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
-    <header>
-        <div class="container header-container">
-            <a href="../index.html" class="logo" aria-label="Inicio Travel Services">
-                Travel Services
+    <nav class="navbar navbar-expand-lg navbar-light bg-body fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="../index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel Services
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
 
-            <div class="header-actions">
-                <nav class="main-nav" aria-label="Navegación Principal">
-                    <ul>
-                        <li class="nav-item has-mega-menu">
-                            <a href="#" class="nav-link">Descubrir</a>
-                            <div class="mega-menu">
-                                <div class="mega-menu-content">
-                                    <a href="../index.html">Inicio</a>
-                                    <a href="destinos.html">Destinos</a>
-                                    <a href="agencias.html">Agencias</a>
-                                    <a href="precios.html">Precios</a>
-                                    <a href="blog.html">Blog</a>
-                                    <a href="contacto.html">Contacto</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="megaMenuDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explorar
+                        </a>
+                        <div class="dropdown-menu shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown"
+                            style="min-width: 350px;">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-map-location-dot me-1"></i> Viajes</h6>
+                                    <a class="dropdown-item rounded" href="destinos.html">Destinos</a>
+                                    <a class="dropdown-item rounded" href="agencias.html">Agencias</a>
+                                    <a class="dropdown-item rounded" href="precios.html">Precios</a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-users me-1"></i> Ayuda</h6>
+                                    <a class="dropdown-item rounded" href="blog.html">Blog</a>
+                                    <a class="dropdown-item rounded" href="contacto.html">Contacto</a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                </nav>
-
-                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
-                    <img src="../assets/icons/sun.svg" alt="sun">
-                    <img src="../assets/icons/moon.svg" alt="moon">
-                </button>
+                        </div>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button type="button" class="btn btn-link text-body p-0" id="theme-toggle"
+                            aria-label="Alternar Modo Oscuro">
+                            <i class="fa-solid fa-circle-half-stroke fs-5"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
 
-        <!-- HERO: título de la página -->
-        <section class="destinos-hero">
-            <div class="container">
-                <h1>Destinos de Argentina</h1>
-                <p>Encuentra tu próximo viaje soñado en nuestra tierra y paisajes inigualables.</p>
+        <section class="position-relative py-5 text-center text-white"
+            style="background: url('../assets/images/Destinos.jpg') center/cover no-repeat; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+            <div class="container position-relative" style="z-index: 1;">
+                <h1 class="display-4 fw-bold">Destinos de Argentina</h1>
+                <p class="lead">Encuentra tu próximo viaje soñado en nuestra tierra y paisajes inigualables.</p>
             </div>
         </section>
 
-        <!-- SISTEMA DE FILTROS + GRILLA MASONRY
-             Los inputs radio ocultos controlan qué categorías de destinos se muestran.
-             Los labels actúan como botones de filtro visibles. -->
-        <div class="filter-container">
+        <section class="py-5">
+            <div class="container">
+                <!-- filtros -->
+                <div class="text-center mb-5">
+                    <div class="d-flex flex-wrap justify-content-center gap-2" role="group"
+                        aria-label="Filtros de destinos">
+                        <button type="button" class="btn btn-primary text-white active filter-btn rounded-pill px-4"
+                            data-filter="todos">Todos</button>
+                        <button type="button" class="btn btn-outline-primary filter-btn rounded-pill px-4"
+                            data-filter="cat-cultura">Cultural</button>
+                        <button type="button" class="btn btn-outline-primary filter-btn rounded-pill px-4"
+                            data-filter="cat-naturaleza">Naturaleza</button>
+                        <button type="button" class="btn btn-outline-primary filter-btn rounded-pill px-4"
+                            data-filter="cat-playa">Sol y Playa</button>
+                        <button type="button" class="btn btn-outline-primary filter-btn rounded-pill px-4"
+                            data-filter="cat-gastronomia">Gastronómico</button>
+                        <button type="button" class="btn btn-outline-primary filter-btn rounded-pill px-4"
+                            data-filter="cat-religioso">Religioso</button>
+                    </div>
+                </div>
 
-            <!-- Inputs radio ocultos que controlan el estado de cada filtro -->
-            <input type="radio" name="destino-filter" id="filter-todos"       class="filter-radio" checked>
-            <input type="radio" name="destino-filter" id="filter-cultura"     class="filter-radio">
-            <input type="radio" name="destino-filter" id="filter-naturaleza"  class="filter-radio">
-            <input type="radio" name="destino-filter" id="filter-playa"       class="filter-radio">
-            <input type="radio" name="destino-filter" id="filter-gastronomia" class="filter-radio">
-            <input type="radio" name="destino-filter" id="filter-religioso"   class="filter-radio">
+                <div class="row g-4" id="destinos-grid">
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-cultura">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/colon.jpg" alt="Teatro Colón" class="w-100 object-fit-cover"
+                                style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Teatro Colón, CABA</h3>
+                                <p class="small mb-0 text-light">Visita guiada por una de las maravillas de la acústica
+                                    mundial.</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Botones de filtro visibles -->
-            <div class="filter-labels" aria-label="Filtros de destinos">
-                <label for="filter-todos"       class="filter-btn">Todos</label>
-                <label for="filter-cultura"     class="filter-btn">Cultural</label>
-                <label for="filter-naturaleza"  class="filter-btn">Naturaleza</label>
-                <label for="filter-playa"       class="filter-btn">Sol y Playa</label>
-                <label for="filter-gastronomia" class="filter-btn">Gastronómico</label>
-                <label for="filter-religioso"   class="filter-btn">Religioso</label>
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-naturaleza">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/cataratasiguazu.jpg" alt="Cataratas del Iguazú"
+                                class="w-100 object-fit-cover" style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Cataratas del Iguazú, Misiones</h3>
+                                <p class="small mb-0 text-light">Siente la fuerza de la Garganta del Diablo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-gastronomia">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/mendoza.jpg" alt="Ruta del Vino" class="w-100 object-fit-cover"
+                                style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Ruta del Vino, Mendoza</h3>
+                                <p class="small mb-0 text-light">Degustaciones de Malbec a los pies de la cordillera.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-gastronomia">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/cafayate.jpg" alt="Cafayate" class="w-100 object-fit-cover"
+                                style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Vinos de Altura, Cafayate</h3>
+                                <p class="small mb-0 text-light">Vení a probar los vinos de altura en Salta.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-cultura">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/laboa.webp" alt="Barrio La Boca" class="w-100 object-fit-cover"
+                                style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Barrio La Boca</h3>
+                                <p class="small mb-0 text-light">Caminito, conventillos y pasión futbolera.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-religioso">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/lujan.webp" alt="Basílica de Luján"
+                                class="w-100 object-fit-cover" style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Basílica de Luján, Bs. As.</h3>
+                                <p class="small mb-0 text-light">El corazón de la fe y centro de peregrinación.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-playa">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/mardeplata.jpg" alt="Mar del Plata"
+                                class="w-100 object-fit-cover" style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Mar del Plata</h3>
+                                <p class="small mb-0 text-light">La perla del atlántico, sol y playas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-playa">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/rio negro.jpg" alt="Las Grutas" class="w-100 object-fit-cover"
+                                style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Las Grutas, Río Negro</h3>
+                                <p class="small mb-0 text-light">Disfruta de aguas cálidas patagónicas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 destino-item cat-naturaleza">
+                        <div
+                            class="position-relative h-100 w-100 rounded-4 shadow-sm hover-scale zoom-img-container overflow-hidden bg-dark">
+                            <img src="../assets/images/salinas.webp" alt="Salinas Grandes"
+                                class="w-100 object-fit-cover" style="height: 300px;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
+                                style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                <h3 class="h5 mb-1">Salinas Grandes, Jujuy</h3>
+                                <p class="small mb-0 text-light">Una maravilla a 3450 msnm.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <!-- Grilla de destinos en formato mosaico (masonry) -->
-            <div class="destinos-masonry">
 
-                <!-- Teatro Colón — Categoría: Cultural, tamaño: ancho -->
-                <article class="destino-item dest-wide cat-cultura">
-                    <img src="../assets/images/colon.jpg" alt="Teatro Colón" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Teatro Colón, CABA</h3>
-                        <p>Visita guiada por una de las maravillas de la acústica mundial.</p>
-                    </div>
-                </article>
-
-                <!-- Cataratas del Iguazú — Categoría: Naturaleza, tamaño: alto -->
-                <article class="destino-item dest-tall cat-naturaleza">
-                    <img src="../assets/images/cataratasiguazu.jpg" alt="Cataratas del Iguazú" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Cataratas del Iguazú, Misiones</h3>
-                        <p>Siente la fuerza de la Garganta del Diablo en esta maravilla natural.</p>
-                    </div>
-                </article>
-
-                <!-- Ruta del Vino Mendoza — Categoría: Gastronómica, tamaño: ancho -->
-                <article class="destino-item dest-wide cat-gastronomia">
-                    <img src="../assets/images/mendoza.jpg" alt="Bodega Mendoza" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Ruta del Vino, Mendoza</h3>
-                        <p>Degustaciones de Malbec a los pies de la cordillera.</p>
-                    </div>
-                </article>
-
-                <!-- Cafayate — Categoría: Gastronómica, tamaño: normal -->
-                <article class="destino-item cat-gastronomia">
-                    <img src="../assets/images/cafayate.jpg" alt="Bodega Cafayate" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Vinos de Altura, Cafayate</h3>
-                        <p>Vení a probar los vinos de altura en Cafayate</p>
-                    </div>
-                </article>
-
-                <!-- Barrio La Boca — Categoría: Cultural, tamaño: alto -->
-                <article class="destino-item dest-tall cat-cultura">
-                    <img src="../assets/images/laboa.webp" alt="Barrio la Boca" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Barrio La Boca</h3>
-                        <p>Entre Caminito, los conventillos y la pasión futbolera por Boca Juniors, descubrí un lugar
-                            único en el mundo.</p>
-                    </div>
-                </article>
-
-                <!-- Basílica de Luján — Categoría: Religiosa, tamaño: normal -->
-                <article class="destino-item cat-religioso">
-                    <img src="../assets/images/lujan.webp" alt="Basílica de Luján" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Basílica de Luján, Bs. As.</h3>
-                        <p>El corazón de la fe y centro de peregrinación de Argentina.</p>
-                    </div>
-                </article>
-
-                <!-- Mar del Plata — Categoría: Playa, tamaño: normal -->
-                <article class="destino-item cat-playa">
-                    <img src="../assets/images/mardeplata.jpg" alt="Mar del Plata" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Mar del Plata</h3>
-                        <p>La perla del atlántico, sol, playas y espectáculos.</p>
-                    </div>
-                </article>
-
-                <!-- Las Grutas — Categoría: Playa, tamaño: ancho -->
-                <article class="destino-item dest-wide cat-playa">
-                    <img src="../assets/images/rio negro.jpg" alt="Las Grutas" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Las Grutas, Rio Negro</h3>
-                        <p>Disfruta de las aguas cálidas y transparentes de las playas patagónicas.</p>
-                    </div>
-                </article>
-
-                <!-- Salinas Grandes — Categoría: Naturaleza, tamaño: normal -->
-                <article class="destino-item cat-naturaleza">
-                    <img src="../assets/images/salinas.webp" alt="Salinas de Jujuy" class="masonry-img">
-                    <div class="overlay">
-                        <h3>Salinas Grandes, Jujuy</h3>
-                        <p>Las Salinas Grandes (a 3450 msnm) son una de esas maravillas que hay que conocer al menos una
-                            vez en la vida.</p>
-                    </div>
-                </article>
-
+        <section class="py-5 bg-body-none border-top">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold">Tarifas de Referencia</h2>
+                    <p class="text-muted">Listado de precios estimados por persona según el destino.</p>
+                </div>
+                <div class="table-responsive bg-white rounded shadow-sm">
+                    <table class="table table-hover table-striped align-middle mb-0">
+                        <thead class="table-primary text-center">
+                            <tr>
+                                <th scope="col" class="text-start ps-5 align-middle">Destino</th>
+                                <th scope="col" class="align-middle">Región</th>
+                                <th scope="col" class="align-middle">Duración</th>
+                                <th scope="col" class="align-middle">Transporte Incluido</th>
+                                <th scope="col" class="align-middle">Precio Final</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <td class="fw-bold text-start ps-4"><i
+                                        class="fa-solid fa-tree text-success me-2"></i>Cataratas del
+                                    Iguazú</td>
+                                <td>Litoral</td>
+                                <td>4 Días</td>
+                                <td>Vuelo + Traslados</td>
+                                <td class="fw-bold text-success">$ 450.000</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-start ps-4"><i
+                                        class="fa-solid fa-snowflake text-info me-2"></i>Glaciar Perito Moreno</td>
+                                <td>Patagonia Sur</td>
+                                <td>5 Días</td>
+                                <td>Vuelo Directo</td>
+                                <td class="fw-bold text-success">$ 850.000</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-start ps-4"><i class="fa-solid fa-mountain me-2"
+                                        style="color: #A0522D"></i>Quebrada de
+                                    Humahuaca</td>
+                                <td>Norte</td>
+                                <td>6 Días</td>
+                                <td>Bus Cama Ejecutivo</td>
+                                <td class="fw-bold text-success">$ 350.000</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-start ps-4"><i class="fa-solid fa-wine-glass me-2"
+                                        style="color: #a81121ff;"></i>Ruta del Vino,
+                                    Mendoza
+                                </td>
+                                <td>Cuyo</td>
+                                <td>3 Días</td>
+                                <td>Vuelo Regular</td>
+                                <td class="fw-bold text-success">$ 400.000</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-start ps-4"><i
+                                        class="fa-solid fa-water text-primary me-2"></i>Mar del
+                                    Plata
+                                </td>
+                                <td>Costa Atlántica</td>
+                                <td>7 Días</td>
+                                <td>Bus Semicama</td>
+                                <td class="fw-bold text-success">$ 250.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-
+        </section>
     </main>
 
-    <!-- PIE DE PÁGINA compartido -->
-    <footer>
-        <div class="container-fluid">
-            <div class="footer-grid">
-
-                <div class="footer-col">
-                    <h3>Sobre Travel Services</h3>
-                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
-                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
-                        gastronomía.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <img src="../assets/icons/facebook.svg" alt="Facebook">
+    <footer class="bg-body-secondary py-5 mt-auto border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Sobre Travel Services</h4>
+                    <p class="text-body-secondary">Somos la red oficial de turismo enfocada en revelar la magia de
+                        Argentina. Nuestra misión es conectar viajeros con nuestra cultura, paisajes y gastronomía.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Facebook">
+                            <div class="sprite-icon sprite-fb"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <img src="../assets/icons/instagram.svg" alt="Instagram">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Instagram">
+                            <div class="sprite-icon sprite-ig"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Tiktok">
-                            <img src="../assets/icons/tik-tok.svg" alt="Tiktok">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Tiktok">
+                            <div class="sprite-icon sprite-tk"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Youtube">
-                            <img src="../assets/icons/youtube.svg" alt="Youtube">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Youtube">
+                            <div class="sprite-icon sprite-yt"></div>
                         </a>
                     </div>
                 </div>
 
-                <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
-                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
-                        <input type="email" placeholder="Ingresa tu correo electrónico" required
-                            aria-label="Email para newsletter">
-                        <button type="submit">Suscribirme</button>
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Newsletter</h4>
+                    <p class="text-body-secondary">Suscríbete para recibir ofertas exclusivas.</p>
+                    <form class="newsletter-form mt-3" onsubmit="event.preventDefault();">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                            <button class="btn btn-primary" type="submit">Suscribirme</button>
+                        </div>
                     </form>
                 </div>
 
-                <div class="footer-col" style="flex-grow: 1;">
-                    <h3>Nuestra Ubicación</h3>
-                    <div class="map-container">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Nuestra Ubicación</h4>
+                    <div class="rounded overflow-hidden shadow-sm">
                         <iframe width="100%" height="200"
                             src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
-                            style="border: 1px solid black"
-                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                            style="border:0" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
-                    Todos los derechos reservados.</p>
+            <hr class="border-secondary my-4 opacity-25">
+            <div class="text-center text-body-secondary">
+                <p class="mb-0">&copy; 2026 Travel Services Argentina. Creado con Bootstrap y jQuery.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/main.js"></script>
 </body>
 
