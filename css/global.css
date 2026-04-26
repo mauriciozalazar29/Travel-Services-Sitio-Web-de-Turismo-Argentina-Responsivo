@@ -45,3 +45,68 @@ body {
     opacity: 1;
     transform: scale(1);
 }
+/*PAGINA AGENCIAS*/
+/* --- Efecto Flip --- */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 450px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+/* Esta clase se activará con jQuery */
+.flip-card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-front img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.flip-card-back {
+    background-color: #0d6efd; /* bg-primary */
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* --- Sistema de Rating --- */
+.star-rating i {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.star-rating i:hover {
+    transform: scale(1.2);
+}
+
+.star-rating i.active {
+    color: #ffc107 !important; /* Dorado Bootstrap */
+}

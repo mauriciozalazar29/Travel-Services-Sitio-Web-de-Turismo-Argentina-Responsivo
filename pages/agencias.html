@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,16 +8,13 @@
     <title>Turismo Argentina | Agencias</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="../css/global.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-body fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-body fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary" href="../index.html">
                 <i class="fa-solid fa-plane-departure"></i> Travel Services
@@ -29,25 +26,25 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
 
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="megaMenuDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Explorar
                         </a>
-                        <div class="dropdown-menu shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown"
-                            style="min-width: 350px;">
+                        <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown" style="min-width: 350px;">
                             <div class="row g-3">
                                 <div class="col-6">
-                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
-                                            class="fa-solid fa-map-location-dot me-1"></i> Viajes</h6>
+                                    <h6 class="dropdown-header text-primary fw-bold px-1">
+                                        <i class="fa-solid fa-map-location-dot me-1"></i> Viajes
+                                    </h6>
                                     <a class="dropdown-item rounded" href="destinos.html">Destinos</a>
                                     <a class="dropdown-item rounded" href="agencias.html">Agencias</a>
                                     <a class="dropdown-item rounded" href="precios.html">Precios</a>
                                 </div>
                                 <div class="col-6">
-                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
-                                            class="fa-solid fa-users me-1"></i> Ayuda</h6>
+                                    <h6 class="dropdown-header text-primary fw-bold px-1">
+                                        <i class="fa-solid fa-users me-1"></i> Ayuda
+                                    </h6>
                                     <a class="dropdown-item rounded" href="blog.html">Blog</a>
                                     <a class="dropdown-item rounded" href="contacto.html">Contacto</a>
                                 </div>
@@ -65,39 +62,40 @@
         </div>
     </nav>
 
-    <main>
+    <main class="mt-5 pt-4">
         <section class="py-5 bg-primary bg-opacity-10 text-center">
             <div class="container py-4">
                 <h1 class="display-4 fw-bold text-primary">Nuestras Agencias Asociadas</h1>
-                <p class="lead text-muted">Las redes de turismo locales más prestigiosas operan con nosotros.
+                <p class="lead text-muted">Las redes de turismo locales más prestigiosas operan con nosotros.</p>
             </div>
         </section>
 
         <section class="py-5">
             <div class="container">
                 <div class="row g-4">
+                    
                     <div class="col-md-6 col-lg-4">
                         <div class="flip-card">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front shadow-sm border-0">
-                                    <img src="../assets/images/PatagoniaTraveler.jpg" alt="Patagonia Traveler">
-                                    <h3 class="h4 fw-bold mt-3">Patagonia Traveler</h3>
+                                <div class="flip-card-front shadow-sm border bg-body">
+                                    <img src="../assets/images/PatagoniaTraveler.jpg" alt="Patagonia Traveler" class="mb-3">
+                                    <h3 class="h4 fw-bold">Patagonia Traveler</h3>
                                     <p class="text-muted">Especialistas en el Sur Argentino.</p>
                                     <span class="badge bg-primary rounded-pill mt-2">Ver Detalles</span>
                                 </div>
-                                <div class="flip-card-back shadow-sm border-0">
+                                <div class="flip-card-back shadow-sm border bg-primary text-white">
                                     <h3 class="h4 mb-3">Patagonia Traveler</h3>
                                     <p class="mb-4 px-3">Más de 20 años de experiencia organizando viajes a los
-                                        glaciares y la tierra del fuego. Guias bilingües certificados.</p>
+                                        glaciares y la tierra del fuego. Guías bilingües certificados.</p>
 
                                     <div class="mt-auto">
                                         <p class="mb-1 fw-bold">Califica esta agencia:</p>
-                                        <div class="star-rating text-light" data-current-rating="4">
+                                        <div class="star-rating" data-current-rating="4">
                                             <i class="fa-solid fa-star text-warning" data-rating="1"></i>
                                             <i class="fa-solid fa-star text-warning" data-rating="2"></i>
                                             <i class="fa-solid fa-star text-warning" data-rating="3"></i>
                                             <i class="fa-solid fa-star text-warning" data-rating="4"></i>
-                                            <i class="fa-regular fa-star" data-rating="5"></i>
+                                            <i class="fa-regular fa-star text-muted" data-rating="5"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -108,20 +106,20 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="flip-card">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front shadow-sm border-0">
-                                    <img src="../assets/images/AltiplanoTravel.jpg" alt="Altiplano Travel">
-                                    <h3 class="h4 fw-bold mt-3">Altiplano Travel</h3>
+                                <div class="flip-card-front shadow-sm border bg-body">
+                                    <img src="../assets/images/AltiplanoTravel.jpg" alt="Altiplano Travel" class="mb-3">
+                                    <h3 class="h4 fw-bold">Altiplano Travel</h3>
                                     <p class="text-muted">La magia del norte a tu alcance.</p>
                                     <span class="badge bg-primary rounded-pill mt-2">Ver Detalles</span>
                                 </div>
-                                <div class="flip-card-back shadow-sm border-0">
+                                <div class="flip-card-back shadow-sm border bg-primary text-white">
                                     <h3 class="h4 mb-3">Altiplano Travel</h3>
                                     <p class="mb-4 px-3">Recorridos culturales y gastronómicos por Salta y Jujuy.
                                         Degustación de vinos y turismo comunitario.</p>
 
                                     <div class="mt-auto">
                                         <p class="mb-1 fw-bold">Califica esta agencia:</p>
-                                        <div class="star-rating text-light" data-current-rating="0">
+                                        <div class="star-rating" data-current-rating="0">
                                             <i class="fa-regular fa-star text-muted" data-rating="1"></i>
                                             <i class="fa-regular fa-star text-muted" data-rating="2"></i>
                                             <i class="fa-regular fa-star text-muted" data-rating="3"></i>
@@ -137,20 +135,20 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="flip-card">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front shadow-sm border-0">
-                                    <img src="../assets/images/NativoEcoTravel.jpg" alt="Nativo EcoTravel">
-                                    <h3 class="h4 fw-bold mt-3">Nativo EcoTravel</h3>
+                                <div class="flip-card-front shadow-sm border bg-body">
+                                    <img src="../assets/images/NativoEcoTravel.jpg" alt="Nativo EcoTravel" class="mb-3">
+                                    <h3 class="h4 fw-bold">Nativo EcoTravel</h3>
                                     <p class="text-muted">Turismo sostenible y aventura.</p>
                                     <span class="badge bg-primary rounded-pill mt-2">Ver Detalles</span>
                                 </div>
-                                <div class="flip-card-back shadow-sm border-0">
+                                <div class="flip-card-back shadow-sm border bg-primary text-white">
                                     <h3 class="h4 mb-3">Nativo EcoTravel</h3>
                                     <p class="mb-4 px-3">Agencia enfocada en el turismo ecológico y de aventura.
                                         Senderismo, kayak y observación de fauna en todo el país.</p>
 
                                     <div class="mt-auto">
                                         <p class="mb-1 fw-bold">Califica esta agencia:</p>
-                                        <div class="star-rating text-light" data-current-rating="5">
+                                        <div class="star-rating" data-current-rating="5">
                                             <i class="fa-solid fa-star text-warning" data-rating="1"></i>
                                             <i class="fa-solid fa-star text-warning" data-rating="2"></i>
                                             <i class="fa-solid fa-star text-warning" data-rating="3"></i>
@@ -162,6 +160,92 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front shadow-sm border bg-body">
+                                    <img src="../assets/images/CorsanViajes.jpeg" alt="Corsan Viajes" class="mb-3">
+                                    <h3 class="h4 fw-bold">Corsan Viajes</h3>
+                                    <p class="text-muted">El mejor servicio, la mejor atencion y el mejor precio.</p>
+                                    <span class="badge bg-primary rounded-pill mt-2">Ver Detalles</span>
+                                </div>
+                                <div class="flip-card-back shadow-sm border bg-primary text-white">
+                                    <h3 class="h4 mb-3">Corsan Viajes</h3>
+                                    <p class="mb-4 px-3">Nuestra experiencia nos ha llevado a cultivar relaciones comerciales con proveedores, hoteleros y gastronómicos de primer nivel, en destinos nacionales y regionales, tales como San Rafael, S.C. de Bariloche, 
+                                        Cataratas, V. Carlos Paz, etc..</p>
+
+                                    <div class="mt-auto">
+                                        <p class="mb-1 fw-bold">Califica esta agencia:</p>
+                                        <div class="star-rating" data-current-rating="4">
+                                            <i class="fa-solid fa-star text-warning" data-rating="1"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="2"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="3"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="4"></i>
+                                            <i class="fa-regular fa-star text-muted" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front shadow-sm border bg-body">
+                                    <img src="../assets/images/PatagoniaTraveler.jpg" alt="Patagonia Traveler" class="mb-3">
+                                    <h3 class="h4 fw-bold">Ativiajes</h3>
+                                    <p class="text-muted">Especialistas en el Sur Argentino.</p>
+                                    <span class="badge bg-primary rounded-pill mt-2">Ver Detalles</span>
+                                </div>
+                                <div class="flip-card-back shadow-sm border bg-primary text-white">
+                                    <h3 class="h4 mb-3">Patagonia Traveler</h3>
+                                    <p class="mb-4 px-3">Más de 20 años de experiencia organizando viajes a los
+                                        glaciares y la tierra del fuego. Guías bilingües certificados.</p>
+
+                                    <div class="mt-auto">
+                                        <p class="mb-1 fw-bold">Califica esta agencia:</p>
+                                        <div class="star-rating" data-current-rating="4">
+                                            <i class="fa-solid fa-star text-warning" data-rating="1"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="2"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="3"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="4"></i>
+                                            <i class="fa-regular fa-star text-muted" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front shadow-sm border bg-body">
+                                    <img src="../assets/images/PatagoniaTraveler.jpg" alt="Patagonia Traveler" class="mb-3">
+                                    <h3 class="h4 fw-bold">Patagonia Traveler</h3>
+                                    <p class="text-muted">Especialistas en el Sur Argentino.</p>
+                                    <span class="badge bg-primary rounded-pill mt-2">Ver Detalles</span>
+                                </div>
+                                <div class="flip-card-back shadow-sm border bg-primary text-white">
+                                    <h3 class="h4 mb-3">Patagonia Traveler</h3>
+                                    <p class="mb-4 px-3">Más de 20 años de experiencia organizando viajes a los
+                                        glaciares y la tierra del fuego. Guías bilingües certificados.</p>
+
+                                    <div class="mt-auto">
+                                        <p class="mb-1 fw-bold">Califica esta agencia:</p>
+                                        <div class="star-rating" data-current-rating="4">
+                                            <i class="fa-solid fa-star text-warning" data-rating="1"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="2"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="3"></i>
+                                            <i class="fa-solid fa-star text-warning" data-rating="4"></i>
+                                            <i class="fa-regular fa-star text-muted" data-rating="5"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
                 </div>
             </div>
         </section>
@@ -175,25 +259,17 @@
                     <p class="text-body-secondary">Somos la red oficial de turismo enfocada en revelar la magia de
                         Argentina. Nuestra misión es conectar viajeros con nuestra cultura, paisajes y gastronomía.</p>
                     <div class="d-flex gap-3 mt-4">
-                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Facebook">
-                            <div class="sprite-icon sprite-fb"></div>
-                        </a>
-                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Instagram">
-                            <div class="sprite-icon sprite-ig"></div>
-                        </a>
-                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Tiktok">
-                            <div class="sprite-icon sprite-tk"></div>
-                        </a>
-                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Youtube">
-                            <div class="sprite-icon sprite-yt"></div>
-                        </a>
+                        <a href="#" class="text-body fs-4" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-body fs-4" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-body fs-4" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="text-body fs-4" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
                     <h4 class="fw-bold mb-3">Newsletter</h4>
                     <p class="text-body-secondary">Suscríbete para recibir ofertas exclusivas.</p>
-                    <form class="newsletter-form mt-3" onsubmit="event.preventDefault();">
+                    <form class="mt-3" onsubmit="event.preventDefault();">
                         <div class="input-group">
                             <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
                             <button class="btn btn-primary" type="submit">Suscribirme</button>
@@ -204,8 +280,8 @@
                 <div class="col-lg-4">
                     <h4 class="fw-bold mb-3">Nuestra Ubicación</h4>
                     <div class="rounded overflow-hidden shadow-sm">
-                        <iframe width="100%" height="200"
-                            src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
+                        <iframe width="100%" height="180"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878420577!2d-58.3815704!3d-34.6037389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9d0a3547301b%3A0x1132d9d541473687!2sObelisco!5e0!3m2!1ses!2sar!4v1714000000000"
                             style="border:0" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -213,7 +289,7 @@
 
             <hr class="border-secondary my-4 opacity-25">
             <div class="text-center text-body-secondary">
-                <p class="mb-0">&copy; 2026 Travel Services Argentina. Creado con Bootstrap y jQuery.</p>
+                <p class="mb-0">© 2026 Travel Services Argentina. Creado con Bootstrap y jQuery.</p>
             </div>
         </div>
     </footer>
