@@ -110,3 +110,12 @@ body {
 .star-rating i.active {
     color: #ffc107 !important; /* Dorado Bootstrap */
 }
+
+/* TABLA PRECIOS - Hover dinámico */
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    transform: scale(1.01);
+}
