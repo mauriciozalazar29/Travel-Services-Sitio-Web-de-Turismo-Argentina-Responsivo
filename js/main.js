@@ -106,8 +106,8 @@ $(document).ready(function () {
     const filterBlog = $('.filter-blog');
     if (filterBlog.length) {
         filterBlog.on('click', function () {
-            $('.filter-blog').removeClass('active btn-dark text-white').addClass('btn-outline-dark');
-            $(this).removeClass('btn-outline-dark').addClass('active btn-dark text-white');
+            $('.filter-blog').removeClass('active btn-light text-primary').addClass('btn-outline-light');
+            $(this).removeClass('btn-outline-light').addClass('active btn-light text-primary');
 
             const filter = $(this).data('filter');
             if (filter === 'todos') {
