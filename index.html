@@ -8,267 +8,344 @@
         content="Descubre los mejores destinos turísticos de Argentina. Viaja, explora y vive experiencias únicas con Travel Services.">
     <title>Turismo Argentina | Travel Services</title>
 
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
 
-    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo" aria-label="Inicio Travel Services">
-                Travel Services
+    <nav class="navbar navbar-expand-lg navbar-light bg-body fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel Services
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
 
-            <div class="header-actions">
-                <nav class="main-nav" aria-label="Navegación Principal">
-                    <ul>
-                        <!-- Ítem con mega-menú desplegable al hover -->
-                        <li class="nav-item has-mega-menu">
-                            <a href="#" class="nav-link">Descubrir</a>
-                            <div class="mega-menu">
-                                <div class="mega-menu-content">
-                                    <a href="index.html">Inicio</a>
-                                    <a href="pages/destinos.html">Destinos</a>
-                                    <a href="pages/agencias.html">Agencias</a>
-                                    <a href="pages/precios.html">Precios</a>
-                                    <a href="pages/blog.html">Blog</a>
-                                    <a href="pages/contacto.html">Contacto</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="megaMenuDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explorar
+                        </a>
+                        <div class="dropdown-menu shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown"
+                            style="min-width: 350px;">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-map-location-dot me-1"></i> Viajes</h6>
+                                    <a class="dropdown-item rounded" href="pages/destinos.html">Destinos</a>
+                                    <a class="dropdown-item rounded" href="pages/agencias.html">Agencias</a>
+                                    <a class="dropdown-item rounded" href="pages/precios.html">Precios</a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-users me-1"></i> Ayuda</h6>
+                                    <a class="dropdown-item rounded" href="pages/blog.html">Blog</a>
+                                    <a class="dropdown-item rounded" href="pages/contacto.html">Contacto</a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                </nav>
+                        </div>
+                    </li>
 
-                <!-- Botón que alterna entre modo claro y oscuro -->
-                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
-                    <img src="./assets/icons/sun.svg" alt="sun">
-                    <img src="./assets/icons/moon.svg" alt="moon">
-                </button>
+
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button type="button" class="btn btn-link text-body p-0" id="theme-toggle"
+                            aria-label="Alternar Modo Oscuro">
+                            <i class="fa-solid fa-circle-half-stroke fs-5"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
 
-        <!-- SECCIÓN HERO: video de fondo a pantalla completa con texto animado -->
-        <section class="hero" aria-label="Introducción">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source
-                    src="./assets/videos/YouTube_Argentina.mp4"
-                    type="video/mp4">
+        <section
+            class="position-relative overflow-hidden d-flex align-items-center justify-content-center text-center text-white"
+            style="min-height: calc(100vh - 80px);">
+            <video autoplay muted loop playsinline class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                style="z-index: -2;">
+                <source src="./assets/videos/YouTube_Argentina.mp4" type="video/mp4">
             </video>
-            <div class="hero-overlay"></div>
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50" style="z-index: -1;"></div>
 
-            <div class="hero-content">
-                <h1>Descubre Argentina</h1>
-                <p>Explora la Patagonia, el imponente Norte, Cuyo y las maravillas que ofrece nuestro país. Tu próxima
-                    aventura empieza aquí.</p>
-                <div class="hero-actions">
-                    <a href="pages/destinos.html" class="btn btn-primary">Ver Destinos</a>
-                    <a href="pages/contacto.html" class="btn btn-secondary glass">Contactanos</a>
+            <div class="p-4" style="z-index: 1;">
+                <h1 class="display-3 fw-bold mb-4 hero-title" style="display:none;">Descubre Argentina</h1>
+                <p class="lead mb-5 hero-subtitle" style="display:none;">Explora la Patagonia, el imponente Norte, Cuyo
+                    y las maravillas que ofrece nuestro país.</p>
+                <div class="hero-actions" style="display:none;">
+                    <a href="pages/destinos.html" class="btn btn-primary btn-lg rounded-pill px-4 me-3">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver Destinos
+                    </a>
+                    <a href="pages/contacto.html"
+                        class="btn btn-light btn-lg rounded-pill px-4 bg-transparent text-white border-white">
+                        <i class="fa-solid fa-envelope"></i> Contactanos
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN DESTINOS DESTACADOS: grilla de tarjetas de destinos populares -->
-        <section class="section">
-            <div class="container-fluid">
-                <h2 class="section-title">
-                    <span>Tendencias Nacionales</span>
-                    Destinos Destacados
-                </h2>
 
-                <div class="destinos-grid">
-
-                    <article class="destino-card">
-                        <span class="destino-tag">Naturaleza</span>
-                        <img src="./assets/images/cataratasiguazu.jpg" alt="Cataratas del Iguazú" class="destino-img">
-                        <div class="destino-info">
-                            <span class="destino-price">$450</span>
-                            <h3>Cataratas del Iguazú, Misiones</h3>
-                            <p>Siente la fuerza de la Garganta del Diablo en esta maravilla natural.</p>
-                        </div>
-                    </article>
-
-                    <article class="destino-card">
-                        <span class="destino-tag">Hielo y Glaciares</span>
-                        <img src="./assets/images/PeritoMoreno.jpg" alt="Glaciar Perito Moreno" class="destino-img">
-                        <div class="destino-info">
-                            <span class="destino-price">$850</span>
-                            <h3>Glaciar Perito Moreno, Santa Cruz</h3>
-                            <p>Recorre la inmensidad de hielo en el corazón del sur argentino.</p>
-                        </div>
-                    </article>
-
-                    <article class="destino-card">
-                        <span class="destino-tag">Cultural</span>
-                        <img src="./assets/images/humahuaca.jpg" alt="Cerro de los Siete Colores" class="destino-img">
-                        <div class="destino-info">
-                            <span class="destino-price">$350</span>
-                            <h3>Quebrada de Humahuaca, Jujuy</h3>
-                            <p>Paisajes milenarios y tradiciones intactas en el norte andino.</p>
-                        </div>
-                    </article>
-
+        <section class="p-5 text-primary-emphasis">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="text-primary fw-bold text-uppercase">Tendencias Nacionales</span>
+                    <h2 class="display-5 fw-bold">Destinos Destacados</h2>
                 </div>
-            </div>
-        </section>
 
-        <!-- SECCIÓN ESTADÍSTICAS: contador animado con CSS puro usando @property -->
-        <section class="section">
-            <div class="container-fluid">
-                <div class="counter-box">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <h3 class="count-animate-1" aria-label="Más de 500 puntos del país"></h3>
-                            <p>Puntos del País</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 hover-scale border-0 shadow-sm rounded-4 overflow-hidden">
+                            <img src="./assets/images/cataratasiguazu.jpg" alt="Cataratas del Iguazú"
+                                class="card-img-top object-fit-cover" style="height: 250px;">
+                            <div class="card-body d-flex flex-column position-relative pt-4">
+                                <span
+                                    class="badge bg-primary position-absolute top-0 start-50 translate-middle rounded-pill px-3 py-2 shadow-sm">
+                                    Naturaleza
+                                </span>
+                                <h3 class="card-title h5 mt-2 fw-bold">Cataratas del Iguazú</h3>
+                                <p class="card-text text-muted flex-grow-1">Siente la fuerza de la Garganta del Diablo
+                                    en esta maravilla natural.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <div>
+                                        <span class="d-block text-muted" style="font-size: 0.75rem;">Desde</span>
+                                        <span class="fs-5 fw-bold text-primary">$450</span><span class="text-muted"
+                                            style="font-size: 0.8rem;"> / pers</span>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-outline-primary rounded-pill px-3">Ver viaje</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <h3 class="count-animate-2"></h3>
-                            <p>Agencias Argentinas Asociadas</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 hover-scale border-0 shadow-sm rounded-4 overflow-hidden">
+                            <img src="./assets/images/PeritoMoreno.jpg" alt="Glaciar Perito Moreno"
+                                class="card-img-top object-fit-cover" style="height: 250px;">
+                            <div class="card-body d-flex flex-column position-relative pt-4">
+                                <span
+                                    class="badge bg-info position-absolute top-0 start-50 translate-middle rounded-pill px-3 py-2 shadow-sm">
+                                    Hielo y Glaciares
+                                </span>
+                                <h3 class="card-title h5 mt-2 fw-bold">Glaciar Perito Moreno</h3>
+                                <p class="card-text text-muted flex-grow-1">Recorre la inmensidad de hielo en el corazón
+                                    del sur
+                                    argentino.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <div>
+                                        <span class="d-block text-muted" style="font-size: 0.75rem;">Desde</span>
+                                        <span class="fs-5 fw-bold text-primary">$850</span><span class="text-muted"
+                                            style="font-size: 0.8rem;"> / pers</span>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-outline-primary rounded-pill px-3">Ver viaje</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <h3>10K+</h3>
-                            <p>Turistas Felices</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 hover-scale border-0 shadow-sm rounded-4 overflow-hidden">
+                            <img src="./assets/images/humahuaca.jpg" alt="Quebrada de Humahuaca"
+                                class="card-img-top object-fit-cover" style="height: 250px;">
+                            <div class="card-body d-flex flex-column position-relative pt-4">
+                                <span
+                                    class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle rounded-pill px-3 py-2 shadow-sm">
+                                    Cultural
+                                </span>
+                                <h3 class="card-title h5 mt-2 fw-bold">Quebrada de Humahuaca</h3>
+                                <p class="card-text text-muted flex-grow-1">Paisajes milenarios y tradiciones intactas
+                                    en el norte
+                                    andino.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                                    <div>
+                                        <span class="d-block text-muted" style="font-size: 0.75rem;">Desde</span>
+                                        <span class="fs-5 fw-bold text-primary">$350</span><span class="text-muted"
+                                            style="font-size: 0.8rem;"> / pers</span>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-outline-primary rounded-pill px-3">Ver viaje</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN TESTIMONIOS: carrusel horizontal con scroll snap (sin JavaScript) -->
-        <section class="section">
-            <div class="container-fluid">
-                <h2 class="section-title">
-                    <span>Experiencias</span>
-                    Lo que dicen nuestros viajeros
-                </h2>
-
-                <div class="testimonials-wrapper">
-                    <div class="testimonials-carousel" tabindex="0" aria-label="Carrusel de testimonios">
-
-                        <div class="testimonial-card">
-                            <div class="stars">★★★★★</div>
-                            <p>"Una experiencia inolvidable. La belleza de los paisajes de los Valles Calchaquíes y
-                                calidad de los vinos de altura"</p>
-                            <div class="user-info">
-                                <img src="./assets/images/mau.jpg" alt="Usuario Mauricio" class="user-avatar">
-                                <div class="user-details">
-                                    <h4>Mauricio Z.</h4>
-                                    <span>Viajó a Cafayate</span>
-                                </div>
-                            </div>
+        -
+        <section class="py-5 bg-primary bg-opacity-10">
+            <div class="container">
+                <div class="bg-primary bg-opacity-10 py-5 px-3 rounded-4 shadow-sm text-center counter-box">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="fs-1 fw-bold text-primary counter-value" data-target="500">0</div>
+                            <p class="fs-5 text-muted mb-0 mt-2">Puntos del País</p>
                         </div>
-
-                        <div class="testimonial-card">
-                            <div class="stars">★★★★★</div>
-                            <p>"Me lo pasé genial en la aventura de 10 días en la Patagonia hecha a medida con Argentina
-                                Pura. Los paisajes eran simplemente alucinantes, y las actividades, emocionantes."</p>
-                            <div class="user-info">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
-                                    alt="Avatar Usuario Marcos" class="user-avatar">
-                                <div class="user-details">
-                                    <h4>Marcos D.</h4>
-                                    <span>Viajó a Bariloche</span>
-                                </div>
-                            </div>
+                        <div class="col-md-4">
+                            <div class="fs-1 fw-bold text-primary counter-value" data-target="150">0</div>
+                            <p class="fs-5 text-muted mb-0 mt-2">Agencias Asociadas</p>
                         </div>
-
-                        <div class="testimonial-card">
-                            <div class="stars">★★★★☆</div>
-                            <p>"Excelente asistencia para ir al faro del fin del mundo. Me orientaron perfectamente para
-                                disfrutar Tierra del Fuego en invierno."</p>
-                            <div class="user-info">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
-                                    alt="Avatar Usuario Sofia" class="user-avatar">
-                                <div class="user-details">
-                                    <h4>Sofia L.</h4>
-                                    <span>Viajó a Ushuaia</span>
-                                </div>
-                            </div>
+                        <div class="col-md-4">
+                            <div class="fs-1 fw-bold text-primary counter-value" data-target="10000">0</div>
+                            <p class="fs-5 text-muted mb-0 mt-2">Turistas Felices</p>
                         </div>
-
-                        <div class="testimonial-card">
-                            <div class="stars">★★★★★</div>
-                            <p>"El paseo en el Tren a las Nubes fue increíble. El guía local salteño nos invitó a comer
-                                empanadas inolvidables."</p>
-                            <div class="user-info">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                                    alt="Avatar Usuario Carlos" class="user-avatar">
-                                <div class="user-details">
-                                    <h4>Carlos M.</h4>
-                                    <span>Viajó a Salta</span>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-5">
+            <div class="container pb-5">
+                <div class="text-center mb-5">
+                    <span class="text-primary fw-bold text-uppercase">Experiencias</span>
+                    <h2 class="display-5 fw-bold">Lo que dicen nuestros viajeros</h2>
+                </div>
+
+                <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                    <div class="carousel-indicators" style="bottom: -50px;">
+                        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0"
+                            class="active bg-primary" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1"
+                            class="bg-primary" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2"
+                            class="bg-primary" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner px-5">
+                        <div class="carousel-item active text-center">
+                            <div class="card border-0 shadow-sm mx-auto bg-body" style="max-width: 600px;">
+                                <div class="card-body p-4">
+                                    <p class="fs-5 fst-italic mb-4 text-body">"Una experiencia inolvidable. La belleza
+                                        de los paisajes de los Valles Calchaquíes y calidad de los vinos de altura."</p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="./assets/images/mau.jpg" alt="Usuario"
+                                            class="rounded-circle me-3 object-fit-cover"
+                                            style="width: 60px; height: 60px;">
+                                        <div class="text-start">
+                                            <h5 class="mb-0 fw-bold text-body">Mauricio Z.</h5>
+                                            <span class="text-muted small">Viajó a Cafayate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item text-center">
+                            <div class="card border-0 shadow-sm mx-auto bg-body" style="max-width: 600px;">
+                                <div class="card-body p-4">
+                                    <p class="fs-5 fst-italic mb-4 text-body">"Me lo pasé genial en la aventura de 10
+                                        días en la Patagonia. Los paisajes eran simplemente alucinantes."</p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                                            alt="Usuario" class="rounded-circle me-3 object-fit-cover"
+                                            style="width: 60px; height: 60px;">
+                                        <div class="text-start">
+                                            <h5 class="mb-0 fw-bold text-body">Marcos D.</h5>
+                                            <span class="text-muted small">Viajó a Bariloche</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item text-center">
+                            <div class="card border-0 shadow-sm mx-auto bg-body" style="max-width: 600px;">
+                                <div class="card-body p-4">
+                                    <p class="fs-5 fst-italic mb-4 text-body">"El paseo en el Tren a las Nubes fue
+                                        increíble. El guía local salteño nos invitó a comer
+                                        empanadas inolvidables."</p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                                            alt="Usuario" class="rounded-circle me-3 object-fit-cover"
+                                            style="width: 60px; height: 60px;">
+                                        <div class="text-start">
+                                            <h5 class="mb-0 fw-bold text-body">Sofia L.</h5>
+                                            <span class="text-muted small">Viajó a Salta</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel"
+                        data-bs-slide="prev" style="width: 1%;">
+                        <i class="fa-solid fa-chevron-left fs-1 text-body" aria-hidden="true"></i>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel"
+                        data-bs-slide="next" style="width: 1%;">
+                        <i class="fa-solid fa-chevron-right fs-1 text-body" aria-hidden="true"></i>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- PIE DE PÁGINA: información de la empresa, newsletter y mapa -->
-    <footer>
-        <div class="container-fluid">
-            <div class="footer-grid">
-
-                <div class="footer-col">
-                    <h3>Sobre Travel Services</h3>
-                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
-                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
-                        gastronomía.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <img src="./assets/icons/facebook.svg" alt="Facebook">
+    <footer class="bg-body-secondary py-5 mt-auto border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Sobre Travel Services</h4>
+                    <p class="text-body-secondary">Somos la red oficial de turismo enfocada en revelar la magia de
+                        Argentina. Nuestra misión es conectar viajeros con nuestra cultura, paisajes y gastronomía.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Facebook">
+                            <div class="sprite-icon sprite-fb"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <img src="./assets/icons/instagram.svg" alt="Instagram">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Instagram">
+                            <div class="sprite-icon sprite-ig"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Tiktok">
-                            <img src="./assets/icons/tik-tok.svg" alt="Tiktok">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Tiktok">
+                            <div class="sprite-icon sprite-tk"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Youtube">
-                            <img src="./assets/icons/youtube.svg" alt="Youtube">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Youtube">
+                            <div class="sprite-icon sprite-yt"></div>
                         </a>
                     </div>
                 </div>
 
-                <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
-                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
-                        <input type="email" placeholder="Ingresa tu correo electrónico" required
-                            aria-label="Email para newsletter">
-                        <button type="submit">Suscribirme</button>
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Newsletter</h4>
+                    <p class="text-body-secondary">Suscríbete para recibir ofertas exclusivas.</p>
+                    <form class="newsletter-form mt-3" onsubmit="event.preventDefault();">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                            <button class="btn btn-primary" type="submit">Suscribirme</button>
+                        </div>
                     </form>
                 </div>
 
-                <div class="footer-col" style="flex-grow: 1;">
-                    <h3>Nuestra Ubicación</h3>
-                    <div class="map-container">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Nuestra Ubicación</h4>
+                    <div class="rounded overflow-hidden shadow-sm">
                         <iframe width="100%" height="200"
                             src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
-                            style="border: 1px solid black"
-                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                            style="border:0" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
-                    Todos los derechos reservados.</p>
+            <hr class="border-secondary my-4 opacity-25">
+            <div class="text-center text-body-secondary">
+                <p class="mb-0">&copy; 2026 Travel Services Argentina. Creado con Bootstrap y jQuery.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

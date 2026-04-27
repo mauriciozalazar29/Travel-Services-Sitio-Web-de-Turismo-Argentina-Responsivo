@@ -1,181 +1,47 @@
-/* =========================================
-   ESTILOS GLOBALES
-   Aplica a todos los archivos del sitio.
-   Define tipografía base, contenedores,
-   botones y utilidades de uso general.
-========================================= */
-
-/* Comportamiento base del documento */
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-/* Cuerpo del sitio: tipografía, fondo, y transición de tema */
 body {
-  font-family: var(--font-primary);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
-  overflow-x: hidden;
-  transition: background-color var(--transition-normal), color var(--transition-normal);
+    padding-top: 80px;
 }
 
-/* Jerarquía tipográfica de encabezados */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-secondary);
-  line-height: 1.2;
-  font-weight: 700;
-  margin-bottom: 1rem;
+/* efecto hover general para tarjetas */
+.hover-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-h1 { font-size: 3.5rem; letter-spacing: -0.02em; }
-h2 { font-size: 2.5rem; letter-spacing: -0.01em; }
-h3 { font-size: 1.75rem; }
-
-/* Los párrafos usan el color secundario para mejor jerarquía visual */
-p {
-  margin-bottom: 1rem;
-  color: var(--color-text-muted);
+.hover-scale:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
-/* Contenedor centrado con ancho máximo fijo (para páginas internas) */
-.container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.card .card-img-top {
+    transition: transform 0.5s ease;
 }
 
-/* Contenedor fluido: ocupa casi todo el ancho de pantalla */
-.container-fluid {
-  width: 100%;
-  max-width: 95%;
-  margin: 0 auto;
-  padding: 0 2rem;
+.hover-scale:hover .card-img-top {
+    transform: scale(1.2);
 }
 
-/* Espaciado vertical estándar de las secciones */
-.section {
-  padding: var(--spacing-section) 0;
+/* efecto zoom imagen destinos */
+.zoom-img-container {
+    overflow: hidden;
 }
 
-/* Título de sección centrado con etiqueta de categoría */
-.section-title {
-  text-align: center;
-  margin-bottom: 3rem;
+.zoom-img-container img {
+    transition: transform 0.5s ease;
 }
 
-/* Etiqueta de categoría sobre el título principal */
-.section-title span {
-  display: block;
-  color: var(--color-primary);
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+.zoom-img-container.zoom-active img {
+    transform: scale(1.2);
 }
 
-/* Indicador de foco visible para accesibilidad por teclado */
-:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 4px;
+/* estado inicial*/
+.magazine-post {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* =========================================
-   BARRA DE DESPLAZAMIENTO PERSONALIZADA
-   Solo funciona en navegadores basados en Chromium.
-========================================= */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-
-/* Thumb de la barra con borde redondeado */
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: var(--radius-round);
-}
-
-/* El thumb se colorea con el azul de la marca al pasar el cursor */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-}
-
-/* =========================================
-   BOTONES REUTILIZABLES
-   Tres variantes: primario, secundario y acento.
-   Todos incluyen microanimación de elevación al hover.
-========================================= */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  gap: 0.5rem;
-}
-
-/* Botón azul sólido (acción principal) */
-.btn-primary {
-  background-color: var(--color-primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  color: white !important;
-}
-
-/* Botón de contorno azul (acción secundaria) */
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-primary);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* Botón de acento dorado (llamadas a la acción especiales) */
-.btn-accent {
-  background-color: var(--color-accent);
-  color: white;
-}
-
-.btn-accent:hover {
-  background-color: var(--color-accent-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* =========================================
-   EFECTO GLASSMORPHISM
-   Aplica un fondo semitransparente con desenfoque,
-   ideal para botones o capas sobre imágenes/videos.
-========================================= */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Variante del efecto glass adaptada al tema oscuro */
-[data-theme="dark"] .glass {
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/*animadp*/
+.magazine-post.in-view {
+    opacity: 1;
+    transform: scale(1);
 }

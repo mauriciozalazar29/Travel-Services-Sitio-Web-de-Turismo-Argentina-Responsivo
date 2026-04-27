@@ -4,287 +4,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Lee las últimas noticias de viajes, guías locales y tips para exploradores por todo el suelo argentino.">
-    <title>Turismo Argentina | Blog de Travel Services</title>
+    <meta name="description" content="Blog de viajes sobre turismo en Argentina">
+    <title>Turismo Argentina | Blog</title>
 
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/reset.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/blog.css">
 </head>
 
 <body>
 
-    <!-- Encabezado fijo con logo, mega-menú y botón de tema -->
-    <header>
-        <div class="container header-container">
-            <a href="../index.html" class="logo" aria-label="Inicio Travel Services">
-                Travel Services
-            </a>
 
-            <div class="header-actions">
-                <nav class="main-nav" aria-label="Navegación Principal">
-                    <ul>
-                        <li class="nav-item has-mega-menu">
-                            <a href="#" class="nav-link">Descubrir</a>
-                            <div class="mega-menu">
-                                <div class="mega-menu-content">
-                                    <a href="../index.html">Inicio</a>
-                                    <a href="destinos.html">Destinos</a>
-                                    <a href="agencias.html">Agencias</a>
-                                    <a href="precios.html">Precios</a>
-                                    <a href="blog.html">Blog</a>
-                                    <a href="contacto.html">Contacto</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-body fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="../index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel Services
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="megaMenuDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explorar
+                        </a>
+                        <div class="dropdown-menu shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown"
+                            style="min-width: 350px;">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-map-location-dot me-1"></i> Viajes</h6>
+                                    <a class="dropdown-item rounded" href="destinos.html">Destinos</a>
+                                    <a class="dropdown-item rounded" href="agencias.html">Agencias</a>
+                                    <a class="dropdown-item rounded" href="precios.html">Precios</a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-users me-1"></i> Ayuda</h6>
+                                    <a class="dropdown-item rounded" href="blog.html">Blog</a>
+                                    <a class="dropdown-item rounded" href="contacto.html">Contacto</a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                </nav>
-
-                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Alternar Modo Oscuro">
-                    <img src="../assets/icons/sun.svg" alt="sun">
-                    <img src="../assets/icons/moon.svg" alt="moon">
-                </button>
+                        </div>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button type="button" class="btn btn-link text-body p-0" id="theme-toggle"
+                            aria-label="Alternar Modo Oscuro">
+                            <i class="fa-solid fa-circle-half-stroke fs-5"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
+        <header class="py-5 text-center text-white" style="background: linear-gradient(135deg, #0d6efd, #0dcaf0);">
+            <div class="container py-4">
+                <h1 class="display-4 fw-bold">Blog Viajes</h1>
+                <p class="lead text-white-50">Consejos, guías y curiosidades de Argentina.</p>
 
-        <!-- HERO: título de la revista de viajes -->
-        <section class="blog-hero">
+                <div class="btn-group mt-4 flex-wrap gap-2" role="group" aria-label="Filtros del blog">
+                    <button type="button" class="btn btn-light active text-primary filter-blog rounded-pill px-4"
+                        data-filter="todos">Todos</button>
+                    <button type="button" class="btn btn-outline-light filter-blog rounded-pill px-4"
+                        data-filter="consejos">Consejos</button>
+                    <button type="button" class="btn btn-outline-light filter-blog rounded-pill px-4"
+                        data-filter="gastronomia">Gastronomía</button>
+                    <button type="button" class="btn btn-outline-light filter-blog rounded-pill px-4"
+                        data-filter="aventura">Aventura</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-5">
             <div class="container">
-                <h1>Blog de viajes</h1>
-                <p>Conoce Argentina con nosotros</p>
+                <div class="row g-4" id="blog-grid">
+
+                    <div class="col-lg-8 blog-post-item consejos">
+                        <div class="card h-100 hover-scale magazine-post border-0 rounded-4 overflow-hidden shadow-sm position-relative">
+                            <img src="../assets/images/Consejos.jpg" class="card-img-top object-fit-cover"
+                                style="height: 400px;" alt="Consejos de viaje">
+                            <div class="card-body p-4">
+                                <span class="badge bg-primary mb-2">Consejos</span>
+                                <h2 class="card-title fw-bold">Qué empacar para la Patagonia en invierno</h2>
+                                <p class="card-text text-body-secondary">La Patagonia puede tener un clima extremo. Aquí te
+                                    contamos el sistema de capas indispensable para no pasar frío y disfrutar al máximo
+                                    de los glaciares y la nieve.</p>
+                                <a href="#" class="fw-bold text-primary text-decoration-none stretched-link">Leer artículo completo <i
+                                        class="fa-solid fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 blog-post-item gastronomia">
+                        <div class="card h-100 hover-scale magazine-post border-0 rounded-4 overflow-hidden shadow-sm position-relative">
+                            <img src="../assets/images/corderopatagonico.jpg" class="card-img-top object-fit-cover"
+                                style="height: 250px;" alt="Cordero patagónico">
+                            <div class="card-body p-4">
+                                <span class="badge bg-danger mb-2">Gastronomía</span>
+                                <h3 class="card-title h5 fw-bold">El auténtico cordero patagónico</h3>
+                                <p class="card-text text-body-secondary small">Descubrí el secreto de asar a la estaca por más de
+                                    4 horas en el sur argentino.</p>
+                                <a href="#" class="fw-bold text-danger text-decoration-none small stretched-link">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 blog-post-item aventura">
+                        <div class="card h-100 hover-scale magazine-post border-0 rounded-4 overflow-hidden shadow-sm position-relative">
+                            <img src="../assets/images/DestinosAventura.jpg" class="card-img-top object-fit-cover"
+                                style="height: 250px;" alt="Trekking">
+                            <div class="card-body p-4">
+                                <span class="badge bg-success mb-2">Aventura</span>
+                                <h3 class="card-title h5 fw-bold">Trekking al Fitz Roy</h3>
+                                <p class="card-text text-body-secondary small">Guía completa paso a paso para llegar a la laguna
+                                    de los tres en El Chaltén.</p>
+                                <a href="#" class="fw-bold text-success text-decoration-none small stretched-link">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 blog-post-item consejos">
+                        <div class="card h-100 hover-scale magazine-post border-0 rounded-4 overflow-hidden shadow-sm position-relative">
+                            <img src="../assets/images/ConsejosUtiles.jpg" class="card-img-top object-fit-cover"
+                                style="height: 250px;" alt="Apps de viaje">
+                            <div class="card-body p-4">
+                                <span class="badge bg-primary mb-2">Consejos</span>
+                                <h3 class="card-title h5 fw-bold">Apps útiles para recorrer el país</h3>
+                                <p class="card-text text-body-secondary small">Desde el clima hasta mapas offline, qué instalar
+                                    en tu teléfono.</p>
+                                <a href="#" class="fw-bold text-primary text-decoration-none small stretched-link">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 blog-post-item gastronomia">
+                        <div class="card h-100 hover-scale magazine-post border-0 rounded-4 overflow-hidden shadow-sm position-relative">
+                            <img src="../assets/images/vino.jpg" class="card-img-top object-fit-cover"
+                                style="height: 250px;" alt="Vino Mendoza">
+                            <div class="card-body p-4">
+                                <span class="badge bg-danger mb-2">Gastronomía</span>
+                                <h3 class="card-title h5 fw-bold">Ruta del Malbec</h3>
+                                <p class="card-text text-body-secondary small">Las 5 bodegas imperdibles si visitas Mendoza este
+                                    año.</p>
+                                <a href="#" class="fw-bold text-danger text-decoration-none small stretched-link">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-5">
+
+                <div class="mx-auto magazine-post bg-primary bg-opacity-10 p-4 p-md-5 rounded-4 shadow-sm"
+                    style="max-width: 800px;">
+                    <h3 class="fw-bold mb-4">Comentarios de la Comunidad</h3>
+
+                    <div class="d-flex gap-3 mb-4 bg-body p-3 p-md-4 rounded-4 shadow-sm border">
+
+                        <div>
+                            <h5 class="mb-1 fw-bold h6">Christian Herrera</h5>
+                            <span class="text-muted small d-block mb-2">Hace 2 días</span>
+                            <p class="mb-0 text-muted">La atención fue excelente desde el primer momento. Siempre
+                                tuvimos asistencia y todo salió tal como se planificó.
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 mb-4 bg-body p-3 p-md-4 rounded-4 shadow-sm border">
+
+                        <div>
+                            <h5 class="mb-1 fw-bold h6">Lazaro Caballero</h5>
+                            <span class="text-muted small d-block mb-2">Hace 5 días</span>
+                            <p class="mb-0 text-muted">Muy buenos consejos de equipaje, especialmente sobre la ropa
+                                térmica. Es indispensable.</p>
+                        </div>
+                    </div>
+
+                    <form class="mt-4"
+                        onsubmit="event.preventDefault(); alert('Comentario enviado (Simulación)'); this.reset();">
+                        <h4 class="h5 fw-bold mb-3">Deja un comentario</h4>
+                        <div class="mb-3">
+                            <textarea class="form-control rounded-3" rows="3" placeholder="Escribe tu opinión aquí..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Publicar</button>
+                    </form>
+                </div>
             </div>
         </section>
-
-        <!-- SISTEMA DE FILTROS + GRILLA DE ARTÍCULOS
-             Los inputs radio ocultos controlan qué artículos se muestran según la categoría.
-             Todo funciona sin JavaScript usando el selector de hermanos CSS (~). -->
-        <div>
-            <!-- Inputs radio ocultos que guardan el estado del filtro activo -->
-            <input type="radio" name="blog-filter" id="tag-all" class="blog-filter-input" checked>
-            <input type="radio" name="blog-filter" id="tag-destinos" class="blog-filter-input">
-            <input type="radio" name="blog-filter" id="tag-cultura" class="blog-filter-input">
-            <input type="radio" name="blog-filter" id="tag-consejos" class="blog-filter-input">
-
-            <!-- Pestañas de filtro -->
-            <nav class="blog-filters">
-                <label for="tag-all" class="blog-filter-label">Todos</label>
-                <label for="tag-destinos" class="blog-filter-label">Destinos</label>
-                <label for="tag-cultura" class="blog-filter-label">Cultura</label>
-                <label for="tag-consejos" class="blog-filter-label">Consejos</label>
-            </nav>
-
-            <!-- Grilla de artículos tipo diario/revista -->
-            <div class="news-grid">
-
-                <!-- Artículo destacado (2 col × 2 filas) — Categoría: Destinos -->
-                <article class="news-article news-featured tag-destinos">
-                    <img src="../assets/images/vino.jpg"
-                        alt="Vino en viñedo" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Destinos</span>
-                        <h2 class="news-title">La ruta del vino en Argentina: paisajes, provincias y variedades únicas
-                        </h2>
-                        <p class="news-excerpt">Argentina es uno de los grandes referentes vitivinícolas del mundo, y
-                            recorrer su ruta del vino es una forma privilegiada de conocer el país a través de sus
-                            paisajes, su cultura y sus sabores. Esta ruta se extiende por varias provincias, cada una
-                            con características propias que dan origen a vinos de gran personalidad.</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-                <!-- Artículo alto (1 col × 2 filas) — Categoría: Destinos -->
-                <article class="news-article news-tall tag-destinos">
-                    <img src="../assets/images/glaciar.jpg"
-                        alt="Glaciares Escondidos" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Destinos Naturaleza</span>
-                        <h2 class="news-title">La Patagonia Argentina y los Glaciares Escondidos</h2>
-                        <p class="news-excerpt">Conocer El Calafate y el Parque Nacional Los Glaciares fue siempre mi
-                            sueño, desde muy pequeño. Oía historias fascinantes y creía que El Calafate era sólo la
-                            puerta de entrada para conocer al impresionante Glaciar Perito Moreno. Sin embargo, la
-                            realidad superó mis expectativas, porque la belleza de esa región es indescriptible.</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-                <!-- Artículo ancho (2 col × 1 fila) — Categoría: Destinos -->
-                <article class="news-article news-wide tag-destinos">
-                    <img src="../assets/images/CataratasdelIguazu-1.jpg"
-                        alt="Cataratas del Iguazú" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Destinos Aventura</span>
-                        <h2 class="news-title">Actividades turísticas imperdibles en Cataratas del Iguazú</h2>
-                        <p class="news-excerpt">Un destino que seduce a viajeros de todo el mundo por su belleza
-                            natural, su infraestructura hotelera y la posibilidad de realizar diversos paseos que son
-                            realmente imperdibles. Las Cataratas del Iguazú son una experiencia única de contacto con la
-                            naturaleza!</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-                <!-- Artículo normal (1 col × 1 fila) — Categoría: Cultura -->
-                <article class="news-article tag-cultura">
-                    <img src="../assets/images/cerros.jpg"
-                        alt="Paisajes de Argentina" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Cultura General</span>
-                        <h2 class="news-title">Argentina es mucho más que paisajes…</h2>
-                        <p class="news-excerpt">Es tradición viva, música, rituales que se transmiten de generación en
-                            generación y celebraciones que definen su identidad.</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-                <!-- Artículo alto (1 col × 2 filas) — Categoría: Consejos -->
-                <article class="news-article news-tall tag-consejos">
-                    <img src="../assets/images/Viajar-a-Argentna.jpg"
-                        alt="Pros y contras Argentina" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Consejos</span>
-                        <h2 class="news-title">Viajar a Argentina: Pros y Contras</h2>
-                        <p class="news-excerpt">Viajar a Argentina significa conocer un país rico en cultura,
-                            gastronomía, paisajes y una identidad única, solamente se contrasta con los miles de
-                            kilómetros que posee su geografía y lo casi imposible resulta visitar a Argentina en un solo
-                            viaje. Es por eso que te comentamos algunos consejos para que puedas tener todo en cuenta a
-                            la hora de organizar tu viaje.</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-                <!-- Artículo ancho (2 col × 1 fila) — Categoría: Consejos -->
-                <article class="news-article news-wide tag-consejos">
-                    <img src="../assets/images/BuenosAiresArgentina.jpg"
-                        alt="Consejos para visitar Argentina" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Consejos Útiles</span>
-                        <h2 class="news-title">Consejos para viajar a Argentina</h2>
-                        <p class="news-excerpt">Cada vez que viajas a un país nuevo, puedes sentir que estás pasando por
-                            un torbellino de emociones. Aunque la emoción puede ser la que más te identifica, algo por
-                            lo que no debes pensar es cómo evitar ofender a aquellos cuyo país planeas visitar. Hay
-                            muchas cosas que parecen normales en otras culturas, pero viajar a Argentina es una
-                            experiencia particular que puede requerir cierta preparación.</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-                <!-- Artículo ancho (2 col × 1 fila) — Categoría: Consejos y Gastronomía -->
-                <article class="news-article news-wide tag-consejos">
-                    <img src="../assets/images/corderopatagonico.jpg"
-                        alt="Gastronomia Patagonia" class="news-img">
-                    <div class="news-content">
-                        <span class="news-tag">Consejos y Gastronomía</span>
-                        <h2 class="news-title">La Mejor Gastronomía de la Patagonia</h2>
-                        <p class="news-excerpt">Cuando comenzamos a planificar un viaje, hay ciertas variables claves
-                            que son innegociables: La gastronomía, un buen lugar para dormir y la gastronomía, sí,
-                            doblemente importante el buen comer y el buen beber, es por eso que te facilitamos el trabajo y recomendamos los mejores platos para disfrutar de la mejor gastronomía de la Patagonia.</p>
-                        <a href="#" class="btn btn-secondary">Leer Completo</a>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- SECCIÓN DE COMENTARIOS RECIENTES con avatares generados completamente en CSS -->
-        <section class="section">
-            <div class="comments-section">
-                <h2>Comentarios Recientes</h2>
-
-                <div class="comment">
-                    <div class="css-avatar avatar-1" aria-hidden="true"></div>
-                    <div class="comment-content">
-                        <span class="comment-author">Christian Herrera</span>
-                        <span class="comment-date">Hace 2 horas</span>
-                        <p>La atención fue excelente desde el primer momento. Siempre tuvimos asistencia y todo salió
-                            tal como se planificó.</p>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class="css-avatar avatar-2" aria-hidden="true"></div>
-                    <div class="comment-content">
-                        <span class="comment-author">Soledad Pastorutti</span>
-                        <span class="comment-date">Ayer, 18:30 hr</span>
-                        <p>Cada destino fue inolvidable: desde la energía de Buenos Aires hasta la naturaleza de Iguazú
-                            y la Patagonia.</p>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class="css-avatar avatar-3" aria-hidden="true"></div>
-                    <div class="comment-content">
-                        <span class="comment-author">Lazaro Caballero</span>
-                        <span class="comment-date">24 Mar 2026</span>
-                        <p>Argentina superó todas nuestras expectativas: paisajes únicos, cultura increíble y gente muy
-                            amable.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
     </main>
 
-    <!-- PIE DE PÁGINA compartido -->
-    <footer>
-        <div class="container-fluid">
-            <div class="footer-grid">
-
-                <div class="footer-col">
-                    <h3>Sobre Travel Services</h3>
-                    <p>Somos la red oficial de turismo enfocada en revelar la magia de Argentina. Nuestra misión es
-                        conectar a apasionados viajeros locales e internacionales con nuestra cultura, paisajes y
-                        gastronomía.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <img src="../assets/icons/facebook.svg" alt="Facebook">
+    <footer class="bg-body-secondary py-5 mt-auto border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Sobre Travel Services</h4>
+                    <p class="text-body-secondary">Somos la red oficial de turismo enfocada en revelar la magia de
+                        Argentina. Nuestra misión es conectar viajeros con nuestra cultura, paisajes y gastronomía.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Facebook">
+                            <div class="sprite-icon sprite-fb"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <img src="../assets/icons/instagram.svg" alt="Instagram">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Instagram">
+                            <div class="sprite-icon sprite-ig"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Tiktok">
-                            <img src="../assets/icons/tik-tok.svg" alt="Tiktok">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Tiktok">
+                            <div class="sprite-icon sprite-tk"></div>
                         </a>
-                        <a href="#" class="social-link" aria-label="Youtube">
-                            <img src="../assets/icons/youtube.svg" alt="Youtube">
+                        <a href="#" class="text-body fs-4 sprite-link" aria-label="Youtube">
+                            <div class="sprite-icon sprite-yt"></div>
                         </a>
                     </div>
                 </div>
 
-                <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>Suscríbete para recibir ofertas exclusivas para vacaciones de invierno o verano.</p>
-                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault();">
-                        <input type="email" placeholder="Ingresa tu correo electrónico" required
-                            aria-label="Email para newsletter">
-                        <button type="submit">Suscribirme</button>
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Newsletter</h4>
+                    <p class="text-body-secondary">Suscríbete para recibir ofertas exclusivas.</p>
+                    <form class="newsletter-form mt-3" onsubmit="event.preventDefault();">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                            <button class="btn btn-primary" type="submit">Suscribirme</button>
+                        </div>
                     </form>
                 </div>
 
-                <div class="footer-col" style="flex-grow: 1;">
-                    <h3>Nuestra Ubicación</h3>
-                    <div class="map-container">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">Nuestra Ubicación</h4>
+                    <div class="rounded overflow-hidden shadow-sm">
                         <iframe width="100%" height="200"
                             src="https://maps.google.com/maps?q=-24.1888835,-65.2929982&hl=es&z=17&output=embed"
-                            style="border: 1px solid black"
-                            title="Facultad de Ingeniería - Universidad Nacional de Jujuy"></iframe>
+                            style="border:0" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Travel Services Argentina. Sitio Web de Mauricio Zalazar creado con HTML5 &amp; CSS3.
-                    Todos los derechos reservados.</p>
+            <hr class="border-secondary my-4 opacity-25">
+            <div class="text-center text-body-secondary">
+                <p class="mb-0">&copy; 2026 Travel Services Argentina. Creado con Bootstrap y jQuery.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/main.js"></script>
 </body>
 
