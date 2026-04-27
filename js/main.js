@@ -135,4 +135,39 @@ $(document).ready(function () {
             observer.observe(this);
         });
     }
+    const flipCards = $('.flip-card-inner');
+    if (flipCards.length) {
+        flipCards.on('click', function (e) {
+            // Evitamos que la carta gire si el usuario hace clic específicamente en las estrellas
+            if (!$(e.target).closest('.star-rating').length) {
+                $(this).toggleClass('is-flipped');
+            }
+        });
+    }
+
+    /* Sistema de Rating con Estrellas */
+    const starRating = $('.star-rating i');
+    if (starRating.length) {
+        starRating.on('click', function () {
+            const $star = $(this);
+            const selectedValue = $star.data('rating');
+            const $container = $star.parent();
+
+            // Actualizar atributo visual y de datos
+            $container.attr('data-current-rating', selectedValue);
+
+            // Cambiar clases para iluminar estrellas
+            $container.find('i').each(function () {
+                const currentStarValue = $(this).data('rating');
+                if (currentStarValue <= selectedValue) {
+                    $(this).removeClass('fa-regular text-muted').addClass('fa-solid text-warning');
+                } else {
+                    $(this).removeClass('fa-solid text-warning').addClass('fa-regular text-muted');
+                }
+            });
+
+            // Feedback visual rápido (opcional)
+            console.log(`Calificación para ${$container.closest('.flip-card-inner').find('h3').text()}: ${selectedValue} estrellas`);
+        });
+    }
 });
