@@ -45,3 +45,188 @@ body {
     opacity: 1;
     transform: scale(1);
 }
+
+.sprite-icon {
+    background-image: url('../assets/icons/pngegg.png');
+    background-repeat: no-repeat;
+    background-size: 96px 96px;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.sprite-icon:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+}
+
+/* Coordenadas para la cuadrícula 3x3 de pngegg.png (32px por celda) */
+.icon-instagram {
+    background-position: 0px 0px;
+}
+
+/* Fila 1, Col 1 */
+.icon-facebook {
+    background-position: -32px 0px;
+}
+
+/* Fila 1, Col 2 */
+.icon-twitter {
+    background-position: -64px 0px;
+}
+
+/* Fila 1, Col 3 */
+.icon-whatsapp {
+    background-position: 0px -32px;
+}
+
+/* Fila 2, Col 1 */
+.icon-youtube {
+    background-position: -32px -32px;
+}
+
+/* Fila 2, Col 2 */
+
+/* En modo oscuro, invertimos el color de los iconos negros a blanco para que sean visibles */
+[data-bs-theme="dark"] .sprite-icon {
+    filter: invert(1);
+}
+
+[data-bs-theme="dark"] .sprite-icon:hover {
+    filter: invert(1) brightness(0.8);
+}
+
+/* Estilo para los iconos alternativos (Bootstrap Icons) cuando no están en el sprite */
+.social-link-alt {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-link-alt:hover {
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Colores Institucionales */
+:root {
+    --bna-blue-main: #008fbe;
+    --bna-orange: #f37021;
+    --bna-gray-input: #f2f2f2;
+}
+
+/* Inputs de línea (Vital para el parecido) */
+.bna-input {
+    border: none !important;
+    border-bottom: 1.5px solid #ccc !important;
+    border-radius: 0 !important;
+    padding: 10px 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: border-color 0.3s;
+}
+
+.bna-input:focus {
+    border-bottom: 2px solid var(--bna-blue-main) !important;
+}
+
+.bna-input::placeholder {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* Botón Continuar (Grisáceo de la imagen) */
+.btn-bna-primary {
+    background-color: #e0e0e0 !important;
+    color: #777 !important;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Colores de texto específicos */
+.text-bna-orange {
+    color: var(--bna-orange) !important;
+}
+
+.text-bna-blue {
+    color: var(--bna-blue-main) !important;
+}
+
+/* Botón teclado virtual con fondo gris muy tenue */
+.bg-light-gray {
+    background-color: #f8f9fa !important;
+}
+
+/* Ajustes de texto del panel azul */
+.content-text p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* --- Dimensiones de los Paneles --- */
+
+/* Por defecto (Pantallas grandes/Desktop) */
+@media (min-width: 1200px) {
+    .col-panel-azul {
+        width: 70% !important;
+        background-color: #008fbe;
+    }
+
+    .col-panel-formulario {
+        width: 30% !important;
+    }
+}
+
+/* Pantallas medianas (Laptop/Tablet horizontal) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .col-panel-azul {
+        width: 50% !important;
+        background-color: #008fbe;
+    }
+
+    .col-panel-formulario {
+        width: 50% !important;
+    }
+}
+
+/* Pantallas móviles */
+@media (max-width: 991px) {
+    .col-panel-formulario {
+        width: 100% !important;
+    }
+}
+
+/* --- Estilos de Elementos --- */
+
+/* Logo  */
+.logo-bna-grande {
+    height: 117px;
+    width: auto;
+}
+
+/* Botón Gris Clarito */
+.btn-continuar-gris {
+    background-color: #f2f2f2 !important;
+    /* Gris muy claro */
+    color: #b0b0b0 !important;
+    /* Texto gris suave */
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-continuar-gris:hover {
+    background-color: #e0e0e0 !important;
+}
+
+/* Mantener el estilo de los inputs lineales */
+.bna-input {
+    border: none !important;
+    border-bottom: 1px solid #ced4da !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    box-shadow: none !important;
+}

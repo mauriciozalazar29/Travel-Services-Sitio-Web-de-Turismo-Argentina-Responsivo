@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Services</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="../index.html">
+                <i class="fa-solid fa-plane-departure"></i> Travel Services
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="megaMenuDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Explorar
+                        </a>
+                        <div class="dropdown-menu shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown"
+                            style="min-width: 350px;">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-map-location-dot me-1"></i> Viajes</h6>
+                                    <a class="dropdown-item rounded" href="destinos.html">Destinos</a>
+                                    <a class="dropdown-item rounded" href="agencias.html">Agencias</a>
+                                    <a class="dropdown-item rounded" href="precios.html">Precios</a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="dropdown-header text-primary fw-bold px-1"><i
+                                            class="fa-solid fa-users me-1"></i> Ayuda</h6>
+                                    <a class="dropdown-item rounded" href="blog.html">Blog</a>
+                                    <a class="dropdown-item rounded" href="contacto.html">Contacto</a>
+                                    <a class="dropdown-item rounded" href="banco.html">Banco</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button type="button" class="btn btn-link text-body p-0" id="theme-toggle"
+                            aria-label="Alternar Modo Oscuro">
+                            <i class="fa-solid fa-circle-half-stroke fs-5"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<main>
+<div class="container-fluid p-0" style="min-height: calc(100vh - 80px);">
+        <div class="row g-0" style="min-height: calc(100vh - 80px);">
+            <div class="col-lg-6 col-xl-8 col-panel-azul d-none d-lg-flex flex-column justify-content-between p-5 text-white">
+                <div class="mt-5 px-lg-5">
+                    <h1 class="display-5 fw-normal mb-4">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Cuidate de las estafas
+                    </h1>
+                        <div class="pe-lg-5 fs-5">
+                            <p class="mb-4">Nunca vamos a pedirte token digital para ingresar a BNA+ ni para actualizar
+                                tus datos. Sólo es necesario para confirmar operaciones que hayas realizado.</p>
+                            <p class="mb-4 opacity-90">Nunca iniciaremos un contacto o conversación para que informes o
+                                confirmes tus claves, pin, token u otros datos sensibles a través de redes sociales,
+                                correo electrónico, mensaje de Whatsapp, mensaje de texto o llamado telefónico.</p>
+                            <p class="opacity-90">Si recibís mensajes de actualización de programas, o una pantalla de
+                                bloqueo te pide que ingreses tu token digital, no lo hagas. Significa que tu computadora
+                                se encuentra infectada y estás siendo víctima de una estafa.</p>
+                        </div>
+                </div>
+
+                <div class="bg-white text-dark p-3 rounded-4 shadow-sm mx-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <div class="fs-1 me-3">🎧</div>
+                        <p class="mb-0 small fw-bold" style="color: #333;">Comunicate al 0810-666-4444 de lunes a
+                            viernes de 8 a 20 hs para que podamos ayudarte.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-4 col-panel-formulario bg-white d-flex flex-column align-items-center justify-content-center p-4 position-relative">
+
+                <div class="login-box w-100" style="max-width: 400px;">
+                    <div class="text-center mb-5">
+                        <img src="../assets/images/BNA+.webp" alt="Logo BNA" class="logo-bna-grande">
+                    </div>
+
+                    <form>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small">DNI</label>
+                            <input type="text" class="form-control bna-input" id="dni" placeholder="Ingresá tu DNI">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small">Usuario</label>
+                            <input type="text" class="form-control bna-input" id="usuario"
+                                placeholder="Ingresá tu nombre de usuario">
+                        </div>
+
+                        <div class="d-grid mb-4">
+                            <button class="btn btn-continuar-gris py-3 rounded-pill fw-bold" type="button"
+                                id="btnSiguiente">Continuar</button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mb-5">
+                        <a href="#" class="text-bna-orange fw-bold text-decoration-none small">Recuperar usuario y
+                            contraseña</a>
+                    </div>
+                </div>
+
+                <div class="d-grid mt-5">
+                    <button class="btn btn-outline-light text-dark py-3 rounded-4 border shadow-sm bg-light-gray"
+                        data-bs-toggle="modal" data-bs-target="#modalEducativo">
+                        <span class="me-2">⌨️</span> BOTON EDUCATIVO PISHING!!!
+                    </button>
+                </div>
+
+                <div class="position-absolute bottom-0 start-0 w-100 mb-4 d-flex justify-content-center gap-4">
+                    <a href="#" class="text-bna-blue text-decoration-none small fw-bold text-center">Contáctenos</a>
+                    <a href="#" class="text-bna-blue text-decoration-none small fw-bold text-center">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-4 text-center">
+        <button class="btn btn-warning shadow-sm fw-bold rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#modalEducativo">
+            <i class="fa-solid fa-shield-halved me-2"></i>¿Cómo detectar este fraude?
+        </button>
+    </div>
+
+    <div class="modal fade" id="modalEducativo" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title fw-bold"> Módulo Educativo: Prevención de Fraude</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Identifica señales de fraude en este ejemplo:</h6>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item list-group-item-action action-check" data-valid="false">
+                            <b>URL Sospechosa:</b> ¿Es bna.com.ar o algo como "bna-seguridad.tk"?
+                        </li>
+                        <li class="list-group-item list-group-item-action action-check" data-valid="false">
+                            <b>Falta de Candado:</b> El sitio no posee certificado SSL válido.
+                        </li>
+                        <li class="list-group-item list-group-item-action action-check" data-valid="false">
+                            <b>Urgencia:</b> Mensajes que te obligan a actuar rápido.
+                        </li>
+                    </ul>
+                    <div id="feedback" class="alert d-none mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
