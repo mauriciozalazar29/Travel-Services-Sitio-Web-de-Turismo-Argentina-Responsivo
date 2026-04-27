@@ -171,3 +171,87 @@ $(document).ready(function () {
         });
     }
 });
+
+$(document).ready(function () {
+    // Función de Sanitización básica
+    function sanitize(str) {
+        return str.replace(/[<>]/g, '').trim();
+    }
+
+    // Validación en tiempo real con jQuery (.on('input'))
+    $('.form-control').on('input', function () {
+        const $input = $(this);
+        const rawValue = $input.val();
+
+        // Sanitización en tiempo real (evitar etiquetas)
+        if (/[<>]/.test(rawValue)) {
+            $input.val(sanitize(rawValue));
+        }
+
+        // Aplicar clases de Bootstrap basadas en validez
+        if (this.checkValidity()) {
+            $input.addClass('is-valid').removeClass('is-invalid');
+        } else {
+            $input.addClass('is-invalid').removeClass('is-valid');
+        }
+    });
+
+    // Manejo del Envío
+    $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+        const $btn = $('#submitBtn');
+        const $spinner = $('#submitSpinner');
+        const $btnText = $btn.find('.btn-text');
+
+        if (form.checkValidity()) {
+            // Sanitización final antes de "enviar"
+            const formData = {
+                nombre: sanitize($('#nombre').val()),
+                email: sanitize($('#email').val()),
+                mensaje: sanitize($('#mensaje').val())
+            };
+
+            // Mostrar Spinner y deshabilitar botón
+            $btn.prop('disabled', true);
+            $spinner.removeClass('d-none');
+            $btnText.text(' Enviando...');
+
+            // Simular latencia de red (2 segundos)
+            setTimeout(function () {
+                // Ocultar Spinner
+                $btn.prop('disabled', false);
+                $spinner.addClass('d-none');
+                $btnText.text('Enviar Mensaje');
+
+                // Mostrar Modal de Bootstrap
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+
+                form.reset();
+                $('.form-control').removeClass('is-valid is-invalid');
+            }, 2000);
+        } else {
+            $(form).addClass('was-validated');
+        }
+    });
+});
+
+$(document).ready(function () {
+    // Detectar si hay texto para iluminar el botón "Continuar"
+    $('#dni, #usuario').on('input', function () {
+        let dni = $('#dni').val();
+        let user = $('#usuario').val();
+
+        if (dni.length > 0 && user.length > 0) {
+            $('#btnSiguiente').css({ 'background-color': '#008fbe', 'color': 'white' });
+        } else {
+            $('#btnSiguiente').css({ 'background-color': '#e0e0e0', 'color': '#888' });
+        }
+    });
+
+    // Tu lógica del modal y alerta se mantiene igual...
+    $('#btnSiguiente').click(function () {
+        alert("⚠️ ¡ALERTA DE SEGURIDAD!\n\nEn este momento, tu usuario acaba de ser enviado a un servidor controlado por atacantes.");
+    });
+});
