@@ -196,40 +196,42 @@ $(document).ready(function () {
         }
     });
 
-    // Manejo del Envío
-    $('#contactForm').on('submit', function (e) {
+    // Manejo del Envío Genérico (Contacto y Blog)
+    $('#contactForm, #commentForm').on('submit', function (e) {
         e.preventDefault();
         const form = this;
-        const $btn = $('#submitBtn');
-        const $spinner = $('#submitSpinner');
+        const $btn = $(this).find('button[type="submit"]');
+        const $spinner = $btn.find('.spinner-border');
         const $btnText = $btn.find('.btn-text');
 
         if (form.checkValidity()) {
-            // Sanitización final antes de "enviar"
-            const formData = {
-                nombre: sanitize($('#nombre').val()),
-                email: sanitize($('#email').val()),
-                mensaje: sanitize($('#mensaje').val())
-            };
+            // Sanitización final de todos los campos antes de "enviar"
+            $(form).find('.form-control').each(function() {
+                $(this).val(sanitize($(this).val()));
+            });
+
+            // Guardar texto original del botón
+            const originalText = $btnText.text();
 
             // Mostrar Spinner y deshabilitar botón
             $btn.prop('disabled', true);
             $spinner.removeClass('d-none');
-            $btnText.text(' Enviando...');
+            $btnText.text(' Procesando...');
 
             // Simular latencia de red (2 segundos)
             setTimeout(function () {
                 // Ocultar Spinner
                 $btn.prop('disabled', false);
                 $spinner.addClass('d-none');
-                $btnText.text('Enviar Mensaje');
+                $btnText.text(originalText);
 
                 // Mostrar Modal de Bootstrap
                 const successModal = new bootstrap.Modal(document.getElementById('successModal'));
                 successModal.show();
 
                 form.reset();
-                $('.form-control').removeClass('is-valid is-invalid');
+                $(form).find('.form-control').removeClass('is-valid is-invalid');
+                $(form).removeClass('was-validated');
             }, 2000);
         } else {
             $(form).addClass('was-validated');

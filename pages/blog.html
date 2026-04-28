@@ -204,18 +204,35 @@
                         </div>
                     </div>
 
-                    <form class="mt-4"
-                        onsubmit="event.preventDefault(); alert('Comentario enviado (Simulación)'); this.reset();">
+                    <form id="commentForm" class="mt-4 needs-validation" novalidate>
                         <h4 class="h5 fw-bold mb-3">Deja un comentario</h4>
                         <div class="mb-3">
-                            <textarea class="form-control rounded-3" rows="3" placeholder="Escribe tu opinión aquí..."
-                                required></textarea>
+                            <textarea class="form-control rounded-3" rows="3" placeholder="Escribe tu opinión aquí..." required minlength="10"></textarea>
+                            <div class="invalid-feedback">El comentario debe tener al menos 10 caracteres.</div>
                         </div>
-                        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Publicar</button>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <span class="btn-text">Publicar</span>
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
+
+        <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-4 text-center border-0 shadow-lg">
+                    <div class="modal-icon mx-auto mb-3 bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 80px; height: 80px;">
+                        <i class="fa-solid fa-check fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold">¡Comentario Publicado!</h3>
+                    <p class="text-muted">Gracias por compartir tu experiencia con la comunidad.</p>
+                    <button type="button" class="btn btn-primary rounded-pill mt-3 py-2 px-4"
+                        data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-body-secondary py-5 mt-auto border-top">
