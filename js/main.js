@@ -106,8 +106,8 @@ $(document).ready(function () {
     const filterBlog = $('.filter-blog');
     if (filterBlog.length) {
         filterBlog.on('click', function () {
-            $('.filter-blog').removeClass('active btn-light text-primary').addClass('btn-outline-light');
-            $(this).removeClass('btn-outline-light').addClass('active btn-light text-primary');
+            $('.filter-blog').removeClass('active btn-primary text-white').addClass('btn-outline-primary');
+            $(this).removeClass('btn-outline-primary').addClass('active btn-primary text-white');
 
             const filter = $(this).data('filter');
             if (filter === 'todos') {
@@ -253,5 +253,49 @@ $(document).ready(function () {
     // Tu lógica del modal y alerta se mantiene igual...
     $('#btnSiguiente').click(function () {
         alert("⚠️ ¡ALERTA DE SEGURIDAD!\n\nEn este momento, tu usuario acaba de ser enviado a un servidor controlado por atacantes.");
+    });
+});
+
+$(document).ready(function() {
+    
+    // 1. Inicializar Tooltips de Bootstrap
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+
+    // 2. Hover Dinámico en Cards y Columnas de Tabla
+    $('.pricing-card').on('mouseenter', function() {
+        const planId = $(this).data('plan');
+        
+        // Opacar las otras cards
+        $('.pricing-card').not(this).addClass('is-faded');
+        $(this).css('transform', 'scale(1.05)');
+
+        // Resaltar la columna correspondiente en la tabla
+        $(`.col-plan-${planId}`).addClass('highlight-col');
+    });
+
+    $('.pricing-card').on('mouseleave', function() {
+        // Restaurar todo
+        $('.pricing-card').removeClass('is-faded').css('transform', 'scale(1)');
+        $('td, th').removeClass('highlight-col');
+    });
+
+    // 3. Hover directo en las celdas de la tabla
+    $('td').on('mouseenter', function() {
+        // Obtener la clase de la columna (col-plan-X)
+        const classList = $(this).attr('class').split(/\s+/);
+        const planClass = classList.find(c => c.includes('col-plan-'));
+        
+        if(planClass) {
+            $(`.${planClass}`).addClass('highlight-col');
+            // Resaltar la card de arriba
+            const planNum = planClass.split('-').pop();
+            $(`.pricing-card[data-plan="${planNum}"]`).addClass('shadow-lg border-primary');
+        }
+    }).on('mouseleave', function() {
+        $('td, th').removeClass('highlight-col');
+        $('.pricing-card').removeClass('shadow-lg border-primary');
     });
 });

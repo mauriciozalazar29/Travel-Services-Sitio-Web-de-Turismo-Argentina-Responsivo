@@ -31,8 +31,8 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Explorar
                         </a>
-                        <div class="dropdown-menu shadow-lg border-0 p-3" aria-labelledby="megaMenuDropdown"
-                            style="min-width: 350px;">
+                        <div class="dropdown-menu dropdown-menu-lg-end shadow-lg border-0 p-3"
+                            aria-labelledby="megaMenuDropdown" style="min-width: 350px;">
                             <div class="row g-3">
                                 <div class="col-6">
                                     <h6 class="dropdown-header text-primary fw-bold px-1"><i
@@ -63,91 +63,122 @@
     </nav>
 
     <main>
-        <section class="py-5 text-center">
-            <div class="container">
-                <h1 class="display-4 fw-bold">Nuestros Planes</h1>
-                <p class="lead text-muted">Elige el paquete que mejor se adapte a tu estilo de viaje.</p>
-            </div>
-        </section>
+    <section class="py-5 bg-primary bg-opacity-10 text-center">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold text-primary">Nuestros Planes</h1>
+            <p class="lead text-muted">Elige el paquete que mejor se adapte a tu estilo de viaje.</p>
+        </div>
+    </section>
 
-        <section class="py-5">
-            <div class="container">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover align-middle text-center">
-                        <thead>
-                            <tr>
-                                <th>Características</th>
-                                <th>
-                                    <h4>Mochilero</h4>
-                                    <span>$150</span><small>/día</small>
-                                </th>
-                                <th>
-                                    <h4>Estándar</h4>
-                                    <span>$300</span><small>/día</small>
-                                </th>
-                                <th>
-                                    <h4>Premium</h4>
-                                    <span>$600</span><small>/día</small>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>
-                                    Hospedaje
-                                    <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip"
-                                        title="Incluye el tipo de alojamiento durante el viaje (hostel, hotel o categoría premium con mayor confort).">
-                                    </i>
-                                </th>
-                                <td>Hostel</td>
-                                <td>Hotel 3 Estrellas</td>
-                                <td>Boutique / 5 Estrellas</td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Transporte interno
-                                    <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip"
-                                        title="Medios de transporte dentro del destino: bus, avión o traslados privados según el plan elegido.">
-                                    </i>
-                                </th>
-                                <td>Bus</td>
-                                <td>Bus Cama / Vuelo Low Cost</td>
-                                <td>Vuelos Directos / Traslado Privado</td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Guía Turístico
-                                    <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip"
-                                        title="Acompañamiento durante las excursiones. Puede ser grupal o un guía privado bilingüe.">
-                                    </i>
-                                </th>
-                                <td><i class="fa-solid fa-xmark"></i></td>
-                                <td>Grupal</td>
-                                <td>Privado bilingüe</td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Asistencia al viajero
-                                    <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip"
-                                        title="Cobertura ante imprevistos médicos o de viaje. Varía desde básica hasta cobertura total premium.">
-                                    </i>
-                                </th>
-                                <td>Básica</td>
-                                <td>Estándar</td>
-                                <td>Premium (Cobertura Total)</td>
-                            </tr>
-                            <tr>
-                                <th>Acciones</th>
-                                <td><button>Elegir</button></td>
-                                <td><button>Elegir</button></td>
-                                <td><button>Elegir Premium</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 mb-5 text-center">
+                <div class="col-12 col-md-4">
+                    <div class="card h-100 shadow-sm pricing-card border-0 rounded-4 overflow-hidden" data-plan="1">
+                        <div class="card-body p-4 p-lg-5 d-flex flex-column">
+                            <h5 class="card-title text-uppercase fw-bold text-muted mb-3">Mochilero</h5>
+                            <h2 class="card-price display-4 fw-bold mb-3">$150<span class="fs-6 text-muted fw-normal">/día</span></h2>
+                            <p class="card-text text-muted mb-4 border-bottom pb-4">Para los que buscan aventura real sin gastar de más.</p>
+                            
+                            <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Hostel compartido</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Bus local</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Asistencia Básica</li>
+                            </ul>
+                            
+                            <button class="btn btn-outline-primary btn-lg rounded-pill w-100 mt-auto fw-bold">Elegir Plan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card h-100 shadow-lg border-primary pricing-card border-2 rounded-4 overflow-hidden position-relative" data-plan="2">
+                        <div class="bg-primary text-white text-uppercase py-1 fw-bold" style="font-size: 0.8rem; letter-spacing: 1px;">
+                            ⭐ Más Popular
+                        </div>
+                        <div class="card-body p-4 p-lg-5 d-flex flex-column">
+                            <h5 class="card-title text-uppercase fw-bold text-primary mb-3">Estándar</h5>
+                            <h2 class="card-price display-4 fw-bold mb-3">$300<span class="fs-6 text-muted fw-normal">/día</span></h2>
+                            <p class="card-text text-muted mb-4 border-bottom pb-4">Comodidad, acceso a todo y excelente relación calidad-precio.</p>
+                            
+                            <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i> Hotel 3★</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i> Bus Cama / Vuelo</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i> Asistencia Completa</li>
+                            </ul>
+                            
+                            <button class="btn btn-primary btn-lg rounded-pill w-100 mt-auto fw-bold shadow-sm">Elegir Plan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card h-100 shadow-sm pricing-card border-0 rounded-4 overflow-hidden" data-plan="3">
+                        <div class="card-body p-4 p-lg-5 d-flex flex-column">
+                            <h5 class="card-title text-uppercase fw-bold text-muted mb-3">Premium</h5>
+                            <h2 class="card-price display-4 fw-bold mb-3">$600<span class="fs-6 text-muted fw-normal">/día</span></h2>
+                            <p class="card-text text-muted mb-4 border-bottom pb-4">Experiencia de lujo total con atención personalizada.</p>
+                            
+                            <ul class="list-unstyled text-start mb-4 flex-grow-1">
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Boutique 5★</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Traslado Privado</li>
+                                <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> VIP Unlimited</li>
+                            </ul>
+                            
+                            <button class="btn btn-outline-primary btn-lg rounded-pill w-100 mt-auto fw-bold">Elegir Premium</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="text-center mb-4 mt-5">
+                <h3 class="fw-bold">Compara los planes en detalle</h3>
+            </div>
+            <div class="table-responsive shadow-sm rounded-4 border bg-body p-3">
+                <table class="table table-hover table-borderless align-middle mb-0" id="comparisonTable">
+                    <thead class="border-bottom">
+                        <tr>
+                            <th scope="col" style="width: 25%;" class="py-3">Características</th>
+                            <th scope="col" class="text-center col-plan-1 py-3 text-muted">Mochilero</th>
+                            <th scope="col" class="text-center col-plan-2 py-3 text-primary fw-bold fs-5">Estándar</th>
+                            <th scope="col" class="text-center col-plan-3 py-3 text-muted">Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-bottom">
+                            <th scope="row" class="py-3 text-muted fw-normal">
+                                Hospedaje 
+                                <i class="fa-solid fa-circle-info text-primary ms-1" 
+                                   data-bs-toggle="tooltip" title="Tipo de alojamiento incluido por noche"></i>
+                            </th>
+                            <td class="text-center col-plan-1 py-3">Hostel compartido</td>
+                            <td class="text-center col-plan-2 py-3 fw-bold">Hotel 3★</td>
+                            <td class="text-center col-plan-3 py-3">Boutique 5★</td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <th scope="row" class="py-3 text-muted fw-normal">
+                                Transporte 
+                                <i class="fa-solid fa-circle-info text-primary ms-1" 
+                                   data-bs-toggle="tooltip" title="Traslados entre ciudades y excursiones"></i>
+                            </th>
+                            <td class="text-center col-plan-1 py-3">Bus local</td>
+                            <td class="text-center col-plan-2 py-3 fw-bold">Bus Cama / Vuelo</td>
+                            <td class="text-center col-plan-3 py-3">Traslado Privado</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="py-3 text-muted fw-normal">
+                                Asistencia 
+                                <i class="fa-solid fa-circle-info text-primary ms-1" 
+                                   data-bs-toggle="tooltip" title="Seguro médico y legal durante el viaje"></i>
+                            </th>
+                            <td class="text-center col-plan-1 py-3">Básica</td>
+                            <td class="text-center col-plan-2 py-3 fw-bold">Completa</td>
+                            <td class="text-center col-plan-3 py-3">VIP Unlimited</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
 
     <footer class="bg-body-secondary py-5 mt-auto border-top">
         <div class="container">

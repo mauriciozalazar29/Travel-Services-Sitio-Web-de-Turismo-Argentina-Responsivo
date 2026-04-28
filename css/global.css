@@ -1,5 +1,5 @@
 body {
-    padding-top: 80px;
+    padding-top: 56px;
 }
 
 /* efecto hover general para tarjetas */
@@ -229,4 +229,27 @@ body {
     border-radius: 0 !important;
     padding-left: 0 !important;
     box-shadow: none !important;
+}
+/* Estilos para el Hover Dinámico de Precios */
+.pricing-card {
+    transition: all 0.3s ease;
+}
+
+.table td, .table th {
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Clase para opacar elementos no seleccionados vía jQuery */
+.is-faded {
+    opacity: 0.5;
+    filter: grayscale(50%);
+}
+
+.highlight-col {
+    background-color: rgba(13, 110, 253, 0.05) !important;
+    font-weight: bold;
+}
+
+[data-bs-theme="dark"] .highlight-col {
+    background-color: rgba(13, 110, 253, 0.15) !important;
 }
