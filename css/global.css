@@ -230,12 +230,14 @@ body {
     padding-left: 0 !important;
     box-shadow: none !important;
 }
+
 /* Estilos para el Hover Dinámico de Precios */
 .pricing-card {
     transition: all 0.3s ease;
 }
 
-.table td, .table th {
+.table td,
+.table th {
     transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
@@ -252,4 +254,15 @@ body {
 
 [data-bs-theme="dark"] .highlight-col {
     background-color: rgba(13, 110, 253, 0.15) !important;
+}
+
+/* TABLA PRECIOS - Hover dinámico */
+.table tbody tr {
+    /* El transform no funciona bien en <tr>, así que suavizamos el color y opacidad */
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+    /* Bootstrap ya usa .table-hover, podemos darle un énfasis adicional a la fila entera opcionalmente */
+    opacity: 0.95;
 }
